@@ -2,10 +2,14 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 const iconv = require("iconv-lite");
 
-const getHttpWeatherData = async (location, year, factor) => {
+const getHttpWeatherData = async weatherInfomation => {
   const response = await axios.request({
     method: "GET",
-    url: `http://www.weather.go.kr/weather/climate/past_table.jsp?stn=${location}&yy=${year}&obs=${factor}&x=16&y=6`,
+    url: `http://www.weather.go.kr/weather/climate/past_table.jsp?stn=${
+      weatherInfomation.locationCode
+    }&yy=${weatherInfomation.year}&obs=${
+      weatherInfomation.factorCode
+    }&x=16&y=6`,
     responseType: "arraybuffer",
     responseEncoding: "binary"
   });
@@ -33,8 +37,8 @@ function getOnlyWeatherFactor(text) {
   return removeAverageText;
 }
 
-async function crawlingWeatherData(locationCode, year, factor) {
-  const htmlData = await getHttpWeatherData(locationCode, year, factor[0]);
+async function crawlingWeatherData(locationCode, year, factorCode) {
+  const htmlData = await getHttpWeatherData(locationCode, year, factorCode);
   const htmlTarget = setHtmlTarget(htmlData);
   const title = getTargetDataByTag(htmlTarget, ".table_topinfo");
   const weatherFactorHtmlData = getTargetDataByTag(
