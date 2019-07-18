@@ -1,0 +1,20 @@
+{
+  "name": "weathercrawler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./test -t 10000"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "cheerio": "^1.0.0-rc.3",
+    "iconv-lite": "^0.5.0"
+  },
+  "devDependencies": {
+    "mocha": "^6.1.4",
+    "should": "^13.2.3"
+  }
+}
