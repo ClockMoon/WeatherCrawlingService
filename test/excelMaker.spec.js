@@ -35,7 +35,9 @@ describe("엑셀 데이터 파싱 테스트", () => {
 
   it("엑셀 파일에 헤더 작성", () => {
     const Test = new WeatherCrawler();
-    Test.inputHeaderInExcel("서울", "2019", "일평균기온").write("Header.xlsx");
+    Test.inputHeaderInExcel("서울", "2019", "일평균기온").write(
+      "./sampleExcelFile/Header.xlsx"
+    );
   });
 
   it("엑셀 파일에 데이터 작성", () => {
@@ -43,7 +45,7 @@ describe("엑셀 데이터 파싱 테스트", () => {
     Test.inputFactorDataInExcel(result.factors, 1, 31, 108, 3);
     Test.inputFactorDataInExcel(result.factors, 2, 28, 108, 3);
     Test.inputFactorDataInExcel(result.factors, 3, 31, 108, 3).write(
-      "FactorData.xlsx"
+      "./sampleExcelFile/FactorData.xlsx"
     );
   });
 
@@ -61,7 +63,7 @@ describe("엑셀 데이터 파싱 테스트", () => {
       factorCode: 7
     });
     Test.inputOneYearFactorData(otherResult.factors, 108, 2018, 7).write(
-      "YearFactorData.xlsx"
+      "./sampleExcelFile/YearFactorData.xlsx"
     );
   });
 
@@ -73,7 +75,7 @@ describe("엑셀 데이터 파싱 테스트", () => {
       factorCode: 10
     });
     Test.inputOneYearFactorData(otherResult.factors, 108, 2018, 10).write(
-      "YearFactorDataByFactorCode.xlsx"
+      "./sampleExcelFile/YearFactorDataByFactorCode.xlsx"
     );
   });
 
@@ -81,13 +83,13 @@ describe("엑셀 데이터 파싱 테스트", () => {
     const Test = new WeatherCrawler();
     Test.setCellPosition();
     Test.globalDay.should.be.equal(1);
-    Test.index.should.be.equal(2);
+    Test.index.should.be.equal(-363);
     Test.setCellPosition();
     Test.globalDay.should.be.equal(1);
-    Test.index.should.be.equal(2);
+    Test.index.should.be.equal(-363);
   });
 
-  it("엑셀 파일에 둘 이상의 요소를 가진 년 데이터 작성", async done => {
+  it("엑셀 파일에 둘 이상의 요소를 가진 1년 데이터 작성", async done => {
     done();
     const Test = new WeatherCrawler();
     const informationDatas = [
@@ -110,7 +112,137 @@ describe("엑셀 데이터 파싱 테스트", () => {
         information.locationCode,
         information.year,
         information.factorCode
-      ).write("TwoFactorDataInYears.xlsx");
+      ).write("./sampleExcelFile/TwoFactorDataInYears.xlsx");
     });
+  });
+
+  it("엑셀 파일에 하나의 요소/ 윤년 포함 여러 년의 데이터 작성(년도 순서를 보장 할 것)", async done => {
+    const Test = new WeatherCrawler();
+    const informationDatas = [
+      {
+        locationCode: 108,
+        year: 2016,
+        factorCode: 7
+      },
+      {
+        locationCode: 108,
+        year: 2017,
+        factorCode: 7
+      },
+      {
+        locationCode: 108,
+        year: 2018,
+        factorCode: 7
+      }
+    ];
+    let otherResult = null;
+    Promise.all(
+      informationDatas.map(async information => {
+        otherResult = await crawlingWeatherData(information);
+        Test.inputOneYearFactorData(
+          otherResult.factors,
+          information.locationCode,
+          information.year,
+          information.factorCode
+        ).write("./sampleExcelFile/OneFactorDataInTwoYears.xlsx");
+      })
+    );
+    done();
+  });
+
+  it("엑셀 파일에 여러 요소/ 윤년 포함 여러 년의 데이터 작성", async done => {
+    const Test = new WeatherCrawler();
+    const informationDatas = [
+      {
+        locationCode: 108,
+        year: 2016,
+        factorCode: 7
+      },
+      {
+        locationCode: 108,
+        year: 2016,
+        factorCode: 10
+      },
+      {
+        locationCode: 108,
+        year: 2017,
+        factorCode: 7
+      },
+      {
+        locationCode: 108,
+        year: 2017,
+        factorCode: 10
+      },
+      {
+        locationCode: 108,
+        year: 2018,
+        factorCode: 7
+      },
+      {
+        locationCode: 108,
+        year: 2018,
+        factorCode: 10
+      }
+    ];
+
+    /* 순서 보장 하지 않는 코드 */
+
+    // const writeData = (otherResult,information) => {
+    //   Test.inputOneYearFactorData(
+    //     otherResult.factors,
+    //     information.locationCode,
+    //     information.year,
+    //     information.factorCode
+    //   ).write("TwoFactorDataInTwoYears.xlsx");
+    // };
+    // informationDatas.map(async information => {
+    //   otherResult = await crawlingWeatherData(information);
+    //   await writeData(otherResult, information);
+    // });
+
+    /* for of 문을 이용해서 모든 처리를 하나씩 하는 코드 (순서보장 확실하나 느림) */
+
+    // const processFunc = async information => {
+    //   console.log(information);
+    //   otherResult = await crawlingWeatherData(information);
+    //   Test.inputOneYearFactorData(
+    //     otherResult.factors,
+    //     information.locationCode,
+    //     information.year,
+    //     information.factorCode
+    //   ).write("TwoFactorDataInTwoYears.xlsx");
+    // };
+
+    // const processArray = async informationDatas => {
+    //   for (const information of informationDatas) {
+    //     await processFunc(information);
+    //   }
+    // };
+
+    /* Promise.all을 이용한 순서보장 */
+
+    const processFunc = async information => {
+      const otherResult = await crawlingWeatherData(information);
+      return {
+        otherResult: otherResult,
+        information: information
+      };
+    };
+
+    const processArray = async informationDatas => {
+      const promiseObj = informationDatas.map(processFunc);
+      Promise.all(promiseObj).then(promiseReturnData => {
+        promiseReturnData.map(target => {
+          Test.inputOneYearFactorData(
+            target.otherResult.factors,
+            target.information.locationCode,
+            target.information.year,
+            target.information.factorCode
+          ).write("./sampleExcelFile/TwoFactorDataInTwoYears.xlsx");
+        });
+      });
+    };
+    processArray(informationDatas);
+    done();
   });
 });

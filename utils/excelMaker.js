@@ -3,10 +3,11 @@ module.exports = class WeatherCrawler {
   constructor() {
     this.workbook = new excel.Workbook();
     this.worksheet = this.workbook.addWorksheet(`New Sheets`);
+    this.year = -1;
     this.globalDay = 1;
     this.index = 2;
     this.leapYearCount = 0;
-    this.yearCounter = 0;
+    this.yearCounter = -1;
     this.monthInfo = [
       {
         month: 1,
@@ -104,8 +105,11 @@ module.exports = class WeatherCrawler {
   }
 
   inputOneYearFactorData(factor, locationCode, year, factorCode) {
+    this.isSameYear(year);
+    if (this.isLeapYear(year) && this.isLeapYear(this.year))
+      this.leapYearCount--;
+    if (this.isLeapYear(this.year)) this.leapYearCount++;
     let valueCell = this.getfactorCodeCell(factorCode);
-    if (this.isLeapYear(year)) this.leapYearCount++;
     this.setCellPosition();
     for (let index in this.monthInfo) {
       if (this.isLeapYear(year) && index == 1) {
@@ -116,22 +120,27 @@ module.exports = class WeatherCrawler {
           locationCode,
           valueCell
         );
+      } else {
+        this.inputFactorDataInExcel(
+          factor,
+          this.monthInfo[index].month,
+          this.monthInfo[index].day,
+          locationCode,
+          valueCell
+        );
+        this.year = year;
       }
-      this.inputFactorDataInExcel(
-        factor,
-        this.monthInfo[index].month,
-        this.monthInfo[index].day,
-        locationCode,
-        valueCell
-      );
     }
-
     return this.workbook;
   }
 
   setCellPosition() {
     this.globalDay = 1;
     this.index = 2 + this.yearCounter * 365 + this.leapYearCount;
+  }
+
+  isSameYear(year) {
+    if (this.year != year) this.yearCounter++;
   }
 
   inputHeaderInExcel(locationName, year, factorName) {
