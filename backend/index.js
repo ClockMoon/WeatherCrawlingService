@@ -12,6 +12,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/user", userAPIRouter);
 app.use("/api/card", cardAPIRouter);
 
-app.listen(8000, () => {
+app.listen(8080, () => {
   console.log("server~~~~run~~~Yea~~");
 });
