@@ -242,7 +242,9 @@ describe("엑셀 데이터 파싱 테스트", () => {
         });
       });
     };
+
     processArray(informationDatas);
+
     done();
   });
 });
