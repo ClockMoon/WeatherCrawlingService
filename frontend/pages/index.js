@@ -35,12 +35,9 @@ const App = () => {
 
   const onExcelTest = async e => {
     e.preventDefault();
-    const newWindow = window.open(
-      "http://localhost:8080/api/card/excel",
-      "newWindow"
-    );
-    const eventForm = e.target;
-    // return await axios.get("http://localhost:8080/api/card");
+    await axios.post("http://localhost:8080/api/card/excel", {
+      dummy
+    });
   };
 
   return (

@@ -139,18 +139,33 @@ const App = () => {
 
   const onExcelTest = async e => {
     e.preventDefault();
-    const newWindow = window.open("http://localhost:8080/api/card/excel", "newWindow");
-    const eventForm = e.target; // return await axios.get("http://localhost:8080/api/card");
+    await axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("http://localhost:8080/api/card/excel", {
+      dummy
+    });
   };
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47
+      lineNumber: 44
     },
     __self: undefined
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     onSubmit: onUserSubmit,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45
+    },
+    __self: undefined
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 46
+    },
+    __self: undefined
+  }, "\uC720\uC800 \uD14C\uC2A4\uD2B8")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    method: "post",
+    onSubmit: onExcelTest,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 48
@@ -160,20 +175,6 @@ const App = () => {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 49
-    },
-    __self: undefined
-  }, "\uC720\uC800 \uD14C\uC2A4\uD2B8")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-    method: "post",
-    onSubmit: onExcelTest,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 51
-    },
-    __self: undefined
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 52
     },
     __self: undefined
   }, "\uC5D1\uC140\uD14C\uC2A4\uD2B8")));

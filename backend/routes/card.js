@@ -11,7 +11,10 @@ router.delete("/", (req, res) => {});
 
 router.put("/", (req, res) => {});
 
+router.get("/excel", (req, res) => {});
+
 router.post("/excel", (req, res) => {
+  console.log(req);
   makeExcelFile(req, res);
 });
 
@@ -19,28 +22,7 @@ let crawlerCase = null;
 
 function makeExcelFile(req, res) {
   crawlerCase = new WeatherCrawler();
-  const dummy = [
-    {
-      locationCode: 108,
-      year: 2016,
-      factorCode: 7
-    },
-    {
-      locationCode: 108,
-      year: 2016,
-      factorCode: 7
-    },
-    {
-      locationCode: 108,
-      year: 2016,
-      factorCode: 7
-    },
-    {
-      locationCode: 108,
-      year: 2016,
-      factorCode: 7
-    }
-  ];
+  const dummy = req.body.dummy;
   processArray(dummy, res);
 }
 

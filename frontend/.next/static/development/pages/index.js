@@ -4886,14 +4886,15 @@ var App = function App() {
     var _ref2 = Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__["default"])(
     /*#__PURE__*/
     _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
-      var newWindow, eventForm;
       return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
               e.preventDefault();
-              newWindow = window.open("http://localhost:8080/api/card/excel", "newWindow");
-              eventForm = e.target; // return await axios.get("http://localhost:8080/api/card");
+              _context2.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_3___default.a.post("http://localhost:8080/api/card/excel", {
+                dummy: dummy
+              });
 
             case 3:
             case "end":
@@ -4911,11 +4912,25 @@ var App = function App() {
   return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47
+      lineNumber: 44
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("form", {
     onSubmit: onUserSubmit,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 46
+    },
+    __self: this
+  }, "\uC720\uC800 \uD14C\uC2A4\uD2B8")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("form", {
+    method: "post",
+    onSubmit: onExcelTest,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 48
@@ -4925,20 +4940,6 @@ var App = function App() {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 49
-    },
-    __self: this
-  }, "\uC720\uC800 \uD14C\uC2A4\uD2B8")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("form", {
-    method: "post",
-    onSubmit: onExcelTest,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 51
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 52
     },
     __self: this
   }, "\uC5D1\uC140\uD14C\uC2A4\uD2B8")));
