@@ -1,0 +1,21 @@
+.header {
+  width: 97%;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2vh 10px 0px 20px;
+  height: 5vh;
+}
+.title {
+  font-family: $font4;
+  font-size: $fontBigSize;
+}
+.board {
+  display: flex;
+  font-family: $font7;
+  font-size: $fontMiddleSize;
+  .login {
+    margin-left: 20px;
+  }
+}

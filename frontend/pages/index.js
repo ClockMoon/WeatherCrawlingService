@@ -1,55 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
-
-const App = () => {
+import LoginForm from "../components/LoginForm";
+import DashBoard from "../components/DashBoard";
+const Home = () => {
   const dummy = [
-    {
-      locationCode: 108,
-      year: 2016,
-      factorCode: 7
-    },
-    {
-      locationCode: 108,
-      year: 2016,
-      factorCode: 7
-    },
-    {
-      locationCode: 108,
-      year: 2016,
-      factorCode: 7
-    },
     {
       locationCode: 108,
       year: 2016,
       factorCode: 7
     }
   ];
-
-  const onUserSubmit = async e => {
-    e.preventDefault();
-    return await axios.post("http://localhost:8080/api/user", {
-      userId: "userId",
-      password: "password"
-    });
-  };
-
-  const onExcelTest = async e => {
-    e.preventDefault();
-    await axios.post("http://localhost:8080/api/card/excel", {
-      dummy
+  const onclick = () => {
+    axios({
+      url: "http://localhost:8080/api/card/excel",
+      method: "POST",
+      data: {
+        dummy
+      },
+      responseType: "blob"
+    }).then(response => {
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "Weather.xlsx");
+      document.body.appendChild(link);
+      link.click();
     });
   };
 
   return (
-    <div>
-      <form onSubmit={onUserSubmit}>
-        <button>유저 테스트</button>
-      </form>
-      <form method="post" onSubmit={onExcelTest}>
-        <button>엑셀테스트</button>
-      </form>
-    </div>
+    <>
+      <div className="page loginFormPage">
+        <LoginForm />
+      </div>
+      <div className="page dashBoardPage">
+        <DashBoard />
+      </div>
+    </>
   );
 };
 
-export default App;
+export default Home;

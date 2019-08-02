@@ -1,0 +1,42 @@
+.loginFormPage {
+  height: 100vh;
+  background: mediumaquamarine;
+}
+.loginFormContainer {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginForm {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(#97daeb, rgb(153, 153, 255));
+  width: 200px;
+  height: 200px;
+  border-radius: 7px;
+  font-family: $fontK3;
+  font-size: 24px;
+  color: white;
+  * {
+    margin-top: 12px;
+    margin-left: 3px;
+    margin-right: 3px;
+    width: 90%;
+    background: none;
+  }
+  input {
+    font-size: 18px;
+    padding: 0px 5px 0px 5px;
+    color: #65c2da;
+    border: none;
+    border-radius: 5px;
+    background: white;
+    font-family: $font5;
+  }
+  .loginButton {
+    text-align: center;
+  }
+}

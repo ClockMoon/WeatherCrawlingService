@@ -14,7 +14,6 @@ router.put("/", (req, res) => {});
 router.get("/excel", (req, res) => {});
 
 router.post("/excel", (req, res) => {
-  console.log(req);
   makeExcelFile(req, res);
 });
 
