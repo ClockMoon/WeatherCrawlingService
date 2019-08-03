@@ -1,25 +1,22 @@
 import { createAction, handleActions } from "redux-actions";
 
 export const initialState = {
-  reduxTest: false
+  reduxTest: []
 };
 
 export const TEST = "TEST";
 
-export const testAction = createAction(TEST);
+export const testAction = createAction(TEST, payload => payload);
 
-export default (state = initialState, action) => {
-  switch (action.type) {
-    case TEST: {
+export default handleActions(
+  {
+    [TEST]: (state, action) => {
+      const newReduxTest = state.reduxTest.concat(action.payload);
       return {
         ...state,
-        reduxTest: true
+        reduxTest: newReduxTest
       };
     }
-    default: {
-      return {
-        ...state
-      };
-    }
-  }
-};
+  },
+  initialState
+);

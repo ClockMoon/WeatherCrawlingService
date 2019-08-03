@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Select } from "antd";
 import locationInformation from "../util/locationInformation";
 import { CreateCardButton } from "./MoveButton";
+import { useDispatch } from "react-redux";
+
 const { Option } = Select;
 
 const dummy = [
@@ -26,6 +28,8 @@ const dummy = [
 ];
 
 const DashBoard = () => {
+  const dispatch = useDispatch();
+
   return (
     <div className="dashboardContainer">
       <div className="cardContainer">
