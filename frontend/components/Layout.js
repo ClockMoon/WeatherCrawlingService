@@ -1,4 +1,11 @@
 import React, { useEffect } from "react";
+import Head from "next/head";
+import scroll from "scroll";
+import scrollDoc from "scroll-doc";
+
+const page = scrollDoc();
+let fragment = 0;
+let nowScrollLocation = fragment;
 
 const Layout = ({ children }) => {
   useEffect(() => {
@@ -17,15 +24,40 @@ const Layout = ({ children }) => {
         index = fragment * indexPage;
         login = fragment * loginPage;
         window.scrollTo(0, index);
-        console.log(totalPageSize);
-        console.log(index);
       }, 100); //페이지 로드시에 즉시 body의 길이를 가져 올 때 조금씩 부족하게 나옴
     });
-
-    window.addEventListener("scroll", function() {
-      console.log(scrollY);
-    });
+    window.addEventListener(
+      "wheel",
+      function(event) {
+        event.preventDefault();
+      },
+      { passive: false }
+    );
   }, []);
+
+  const goDashBoard = e => {
+    const totalPageSize = document.body.scrollHeight;
+    fragment = totalPageSize / 5;
+    nowScrollLocation = fragment;
+    scroll.top(page, nowScrollLocation);
+    const target = e.target;
+    target.classList.add("activeJump");
+    setTimeout(() => {
+      target.classList.remove("activeJump");
+    }, 1100);
+  };
+
+  const goLogin = e => {
+    nowScrollLocation = 0;
+    scroll.top(page, nowScrollLocation);
+    const target = e.target;
+
+    target.classList.add("activeJump");
+    setTimeout(() => {
+      target.classList.remove("activeJump");
+    }, 1100);
+  };
+
   return (
     <div>
       <div className="header">
@@ -33,8 +65,12 @@ const Layout = ({ children }) => {
           <div className="colorFont">WeatherCrawler</div>
         </div>
         <div className="board">
-          <div className="colorFont dashBoard">DashBoard</div>
-          <div className="colorFont login">Login</div>
+          <div onClick={goDashBoard} className="colorFont dashBoard">
+            DashBoard
+          </div>
+          <div onClick={goLogin} className="colorFont login">
+            Login
+          </div>
         </div>
       </div>
       <div>{children}</div>

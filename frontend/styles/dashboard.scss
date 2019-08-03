@@ -1,15 +1,21 @@
 .dashBoardPage {
   height: 100vh;
-  background: aqua;
+  // background: aqua;
 }
 
-.cardContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.dashboardContainer {
+  display: grid;
   width: 100%;
   height: 100%;
+  grid-template-columns: 90% 10%;
   animation: showUpAnimation 2s;
+}
+.cardContainer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
 .card {
@@ -91,6 +97,13 @@
       margin: 10px 0px 0px 0px;
     }
   }
+}
+
+.cardSelectBox {
+  margin-top: 20px;
+  width: 200px;
+  font-size: $fontSmallSize;
+  color: #97daeb;
 }
 
 .createFileButton {

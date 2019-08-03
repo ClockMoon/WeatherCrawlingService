@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import { Select } from "antd";
+import locationInformation from "../util/locationInformation";
+import { CreateCardButton } from "./MoveButton";
+const { Option } = Select;
 
 const dummy = [
   {
@@ -23,20 +27,23 @@ const dummy = [
 
 const DashBoard = () => {
   return (
-    <div className="cardContainer">
-      {dummy.map((item, index) => {
-        return (
-          <Card
-            key={item.id}
-            title={item.title}
-            tempertureFactor={item.tempertureFactor}
-            windFactor={item.windFactor}
-            rainfallFactor={item.rainfallFactor}
-            startYear={item.startYear}
-            endYear={item.endYear}
-          />
-        );
-      })}
+    <div className="dashboardContainer">
+      <div className="cardContainer">
+        {dummy.map((item, index) => {
+          return (
+            <Card
+              key={item.id}
+              title={item.title}
+              tempertureFactor={item.tempertureFactor}
+              windFactor={item.windFactor}
+              rainfallFactor={item.rainfallFactor}
+              startYear={item.startYear}
+              endYear={item.endYear}
+            />
+          );
+        })}
+      </div>
+      <CreateCardButton />
     </div>
   );
 };
@@ -47,8 +54,8 @@ const Card = props => {
       e.target.parentNode.parentNode.classList.toggle("active");
     else e.target.parentNode.parentNode.parentNode.classList.toggle("active");
   };
-  const selectedChange = e => {
-    setTitle(e.target.value);
+  const selectedChange = value => {
+    setTitle(value);
   };
   const {
     tempertureFactor,
@@ -59,6 +66,18 @@ const Card = props => {
   } = props;
 
   const [title, setTitle] = useState(props.title);
+  const dummy = [];
+  locationInformation.map(target => {
+    dummy.push(
+      <Option
+        className="selectOption"
+        key={target.code}
+        value={target.location}
+      >
+        {target.location}
+      </Option>
+    );
+  });
 
   return (
     <>
@@ -89,19 +108,13 @@ const Card = props => {
           </div>
         </div>
         <div className="card-side card-side-back">
-          <form id="form">
-            <select
-              onChange={selectedChange}
-              className="cardSelectBox"
-              selected={title}
-            >
-              <option value="서울">서울</option>
-              <option value="경기">경기</option>
-              <option value="강원">강원</option>
-              <option value="부산">부산</option>
-              <option value="대구">대구</option>
-            </select>
-          </form>
+          <Select
+            size="default"
+            onChange={selectedChange}
+            className="cardSelectBox"
+          >
+            {dummy}
+          </Select>
           <div className="editCompleteButton" onClick={onClickMethod}>
             수정 완료
           </div>

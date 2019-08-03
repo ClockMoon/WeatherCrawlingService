@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import LoginForm from "../components/LoginForm";
 import DashBoard from "../components/DashBoard";
+import LocationSelect from "../components/LocationSelect";
+import FactorSelect from "../components/FactorSelect";
+import YearSelect from "../components/YearSelect";
 const Home = () => {
   const dummy = [
     {
@@ -35,6 +38,15 @@ const Home = () => {
       </div>
       <div className="page dashBoardPage">
         <DashBoard />
+      </div>
+      <div className="page locationSelectPage">
+        <LocationSelect />
+      </div>
+      <div className="page factorSelectPage">
+        <FactorSelect />
+      </div>
+      <div className="page yearSelectPage">
+        <YearSelect />
       </div>
     </>
   );

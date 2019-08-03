@@ -18,8 +18,8 @@ const LoginForm = () => {
   };
   return (
     <div className="loginFormContainer">
-      <form className="loginForm">
-        <label className="labelId" for="idInputId">
+      <form id="loginForm" className="loginForm">
+        <label className="labelId" htmlFor="idInputId">
           아이디
         </label>
         <input
@@ -28,7 +28,7 @@ const LoginForm = () => {
           className="inputId"
           id="idInputId"
         />
-        <label className="labelPassword" for="idInputPassword">
+        <label className="labelPassword" htmlFor="idInputPassword">
           비밀번호
         </label>
         <input

@@ -1,0 +1,106 @@
+.previousContainer {
+  display: flex;
+  align-items: flex-end;
+  height: 100vh;
+  margin-left: 20px;
+}
+
+.previous {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  width: 100px;
+  height: 50px;
+  border-radius: 5px;
+  background: $mainColor;
+  font-size: $fontSmallSize;
+  font-family: $fontK4;
+  color: white;
+  cursor: pointer;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 2s;
+}
+
+.nextContainer {
+  display: flex;
+  align-items: flex-end;
+  height: 100vh;
+  margin-right: 20px;
+}
+
+.next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  width: 100px;
+  height: 50px;
+  border-radius: 5px;
+  background: $mainColor;
+  font-size: $fontSmallSize;
+  font-family: $fontK4;
+  color: white;
+  cursor: pointer;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 2s;
+}
+
+.previous:hover {
+  background: rgb(255, 96, 96);
+}
+
+.next:hover {
+  background: rgb(123, 255, 82);
+}
+
+.submitCardContainer {
+  display: flex;
+  align-items: flex-end;
+  height: 100vh;
+  margin-left: 20px;
+}
+
+.submitCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  width: 100px;
+  height: 50px;
+  border-radius: 5px;
+  background: $mainColor;
+  font-size: $fontSmallSize;
+  font-family: $fontK4;
+  color: white;
+  cursor: pointer;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 2s;
+}
+.submitCard:hover {
+  background: rgb(82, 163, 255);
+}
+
+.createCardContainer {
+  display: flex;
+  align-items: flex-end;
+  height: 100vh;
+  margin-left: 20px;
+}
+
+.createCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+  background: $mainColor;
+  font-size: $fontSmallSize;
+  font-family: $fontK4;
+  color: white;
+  cursor: pointer;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 2s;
+}
+
+.createCard:hover {
+  background: rgb(82, 163, 255);
+}

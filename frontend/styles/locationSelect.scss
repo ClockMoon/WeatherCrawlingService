@@ -1,0 +1,25 @@
+.locationSelectPage {
+  height: 100vh;
+  // color: darkgray;
+}
+.locationSelectContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.locationContainer {
+  width: 60%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px solid #97daeb;
+  border-radius: 10px;
+  padding: 15px;
+}
+.location {
+  font-size: $fontMiddleSize;
+  font-family: $fontK8;
+  cursor: pointer;
+}

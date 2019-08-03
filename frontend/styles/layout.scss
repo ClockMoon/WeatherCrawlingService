@@ -17,5 +17,12 @@
   font-size: $fontMiddleSize;
   .login {
     margin-left: 20px;
+    cursor: pointer;
+  }
+  .dashBoard {
+    cursor: pointer;
+  }
+  .activeJump {
+    animation: jump 1s forwards;
   }
 }
