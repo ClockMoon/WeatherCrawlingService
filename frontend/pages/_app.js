@@ -6,7 +6,13 @@ import withRedux from "next-redux-wrapper";
 import { applyMiddleware, compose, createStore } from "redux";
 import { Provider } from "react-redux";
 import reducer from "../reducers";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Index = ({ Component, store }) => {
+  toast.configure({
+    autoClose: 2000,
+    draggable: false
+  });
   return (
     <Provider store={store}>
       <Head>

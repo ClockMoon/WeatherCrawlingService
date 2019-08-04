@@ -72,12 +72,17 @@
     text-align: center;
   }
   .cardFactorFactors {
+    width: 100%;
+    height: 100px;
     margin: 10px 0px 0px 0px;
     display: flex;
     justify-content: center;
 
     * {
       margin: 0 2px;
+      width: 100%;
+      word-wrap: break-word;
+      text-align: center;
     }
   }
 }
@@ -113,7 +118,7 @@
   opacity: 0;
   transition: 1s;
   text-align: center;
-  margin: 30% 0px 0px 60px;
+  margin: 5% 0px 0px 60px;
   background: white;
   width: 60%;
   height: 40px;

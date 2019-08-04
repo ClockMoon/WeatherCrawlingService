@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { loginAction } from "../reducers/user";
 
 const LoginForm = () => {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
   const onChangeId = e => {
     setUserId(e.target.value);
   };
@@ -11,6 +14,12 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
   const requestLogin = () => {
+    dispatch(
+      loginAction({
+        userId,
+        password
+      })
+    );
     axios.post("http://localhost:8080/api/user", {
       userId,
       password

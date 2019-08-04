@@ -22,4 +22,8 @@
   font-size: $fontMiddleSize;
   font-family: $fontK8;
   cursor: pointer;
+  transition: 0.5s;
+}
+.selectedLocation {
+  color: rgb(255, 169, 98);
 }

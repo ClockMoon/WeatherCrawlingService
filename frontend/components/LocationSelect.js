@@ -1,7 +1,8 @@
 import React from "react";
 import { PreviousMoveButton, NextMoveButton } from "./MoveButton";
 import locationInformation from "../util/locationInformation";
-
+import { useDispatch, useSelector } from "react-redux";
+import { selectLocation } from "../reducers/card";
 const LocationSelect = () => {
   return (
     <div className="locationSelectContainer">
@@ -54,6 +55,12 @@ const LocationSelect = () => {
 };
 
 const Location = props => {
+  const dispatch = useDispatch();
+  const selectedLocation = useSelector(state => state.card.location);
+  const selectTarget = e => {
+    const location = e.target.innerHTML;
+    dispatch(selectLocation({ location }));
+  };
   return (
     <>
       {props.locationInformation
@@ -63,9 +70,25 @@ const Location = props => {
         .map(target => {
           return (
             <>
-              <div key={target.code} className="location colorFont">
-                {target.location}
-              </div>
+              {selectedLocation === target.location ? (
+                <div
+                  value={target.location}
+                  onClick={selectTarget}
+                  key={target.code}
+                  className="location selectedLocation"
+                >
+                  {target.location}
+                </div>
+              ) : (
+                <div
+                  value={target.location}
+                  onClick={selectTarget}
+                  key={target.code}
+                  className="location colorFont"
+                >
+                  {target.location}
+                </div>
+              )}
             </>
           );
         })}

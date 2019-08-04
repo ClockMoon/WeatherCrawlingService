@@ -1,20 +1,21 @@
 import { createAction, handleActions } from "redux-actions";
 
 export const initialState = {
-  reduxTest: []
+  isLoggedIn: false,
+  user: null
 };
 
-export const TEST = "TEST";
+export const LOG_IN = "LOG_IN";
 
-export const testAction = createAction(TEST, payload => payload);
+export const loginAction = createAction(LOG_IN, payload => payload);
 
 export default handleActions(
   {
-    [TEST]: (state, action) => {
-      const newReduxTest = state.reduxTest.concat(action.payload);
+    [LOG_IN]: (state, action) => {
       return {
         ...state,
-        reduxTest: newReduxTest
+        isLoggedIn: true,
+        user: action.payload.userId
       };
     }
   },

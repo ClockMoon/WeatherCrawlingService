@@ -2,34 +2,12 @@ import React, { useState } from "react";
 import { Select } from "antd";
 import locationInformation from "../util/locationInformation";
 import { CreateCardButton } from "./MoveButton";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const { Option } = Select;
 
-const dummy = [
-  {
-    id: 1,
-    title: "서울",
-    tempertureFactor: true,
-    windFactor: false,
-    rainfallFactor: true,
-    startYear: 1960,
-    endYear: 2010
-  },
-  {
-    id: 2,
-    title: "대구",
-    tempertureFactor: false,
-    windFactor: false,
-    rainfallFactor: true,
-    startYear: 1968,
-    endYear: 2018
-  }
-];
-
 const DashBoard = () => {
-  const dispatch = useDispatch();
-
+  const dummy = useSelector(state => state.card.cards);
   return (
     <div className="dashboardContainer">
       <div className="cardContainer">
@@ -38,9 +16,16 @@ const DashBoard = () => {
             <Card
               key={item.id}
               title={item.title}
-              tempertureFactor={item.tempertureFactor}
-              windFactor={item.windFactor}
-              rainfallFactor={item.rainfallFactor}
+              averageTemperture={item.averageTemperture}
+              lowestTemperture={item.lowestTemperture}
+              highestTemperture={item.highestTemperture}
+              rainfall={item.rainfall}
+              snowfall={item.snowfall}
+              averageWindSpeed={item.averageWindSpeed}
+              huminity={item.huminity}
+              sunnyHour={item.sunnyHour}
+              cloudy={item.cloudy}
+              weather={item.weather}
               startYear={item.startYear}
               endYear={item.endYear}
             />
@@ -62,9 +47,16 @@ const Card = props => {
     setTitle(value);
   };
   const {
-    tempertureFactor,
-    windFactor,
-    rainfallFactor,
+    averageTemperture,
+    lowestTemperture,
+    highestTemperture,
+    rainfall,
+    snowfall,
+    averageWindSpeed,
+    huminity,
+    sunnyHour,
+    cloudy,
+    weather,
     startYear,
     endYear
   } = props;
@@ -92,9 +84,16 @@ const Card = props => {
           <div className="cardFactor">
             <div className="cardFactorTitle">인자</div>
             <div className="cardFactorFactors">
-              <div>{tempertureFactor ? "평균온도" : null}</div>
-              <div>{windFactor ? "평균풍속" : null}</div>
-              <div>{rainfallFactor ? "강수량" : null}</div>
+              <div>{averageTemperture ? "평균기온" : null}</div>
+              <div>{lowestTemperture ? "최저기온" : null}</div>
+              <div>{highestTemperture ? "최고기온" : null}</div>
+              <div>{rainfall ? "강수량" : null}</div>
+              <div>{snowfall ? "신적설" : null}</div>
+              <div>{averageWindSpeed ? "평균풍속" : null}</div>
+              <div>{huminity ? "상대습도" : null}</div>
+              <div>{sunnyHour ? "일조시간" : null}</div>
+              <div>{cloudy ? "운량" : null}</div>
+              <div>{weather ? "날씨" : null}</div>
             </div>
           </div>
           <div className="cardYear">
