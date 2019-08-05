@@ -2,8 +2,8 @@ import { createAction, handleActions } from "redux-actions";
 
 const dummy = [
   {
-    id: 0,
-    title: "서울",
+    id: 998,
+    location: "서울",
     averageTemperture: true,
     lowestTemperture: true,
     highestTemperture: true,
@@ -18,8 +18,8 @@ const dummy = [
     endYear: 2010
   },
   {
-    id: 1,
-    title: "대구",
+    id: 999,
+    location: "대구",
     averageTemperture: true,
     lowestTemperture: true,
     highestTemperture: true,
@@ -44,43 +44,82 @@ export const initialState = {
   endYear: null
 };
 
-export const ADD_CARD = "ADD_CARD";
+export const ADD_CARD_REQUEST = "ADD_CARD_REQUEST";
+export const ADD_CARD_SUCCESS = "ADD_CARD_SUCCESS";
+export const ADD_CARD_FAILURE = "ADD_CARD_FAILURE";
+
 export const MODIFY_CARD_NUMBER = "MODIFY_CARD_NUMBER";
+
 export const SELECT_LOCATION = "SELECT_LOCATION";
 export const SELECT_FACTORS = "SELECT_FACTORS";
 export const SELECT_ALL_FACTORS = "SELECT_ALL_FACTORS";
 export const SELECT_START_YEAR = "SELECT_START_YEAR";
 export const SELECT_END_YEAR = "SELECT_END_YEAR";
 
-export const addCard = createAction(ADD_CARD, payload => payload);
+export const CARD_LOAD_REQUEST = "CARD_LOAD_REQUEST";
+export const CARD_LOAD_SUCCESS = "CARD_LOAD_SUCCESS";
+export const CARD_LOAD_FAILURE = "CARD_LOAD_FAILURE";
+
+export const addCardAction = createAction(ADD_CARD_REQUEST, payload => payload);
 export const modifyCardNumber = createAction(
   MODIFY_CARD_NUMBER,
   payload => payload
 );
-export const selectLocation = createAction(SELECT_LOCATION, payload => payload);
+export const selectLocationAction = createAction(
+  SELECT_LOCATION,
+  payload => payload
+);
 
-export const selectFactors = createAction(SELECT_FACTORS, payload => payload);
-export const selectAllFactors = createAction(
+export const selectFactorsAction = createAction(
+  SELECT_FACTORS,
+  payload => payload
+);
+export const selectAllFactorsAction = createAction(
   SELECT_ALL_FACTORS,
   payload => payload
 );
 
-export const selectStartYear = createAction(
+export const selectStartYearAction = createAction(
   SELECT_START_YEAR,
   payload => payload
 );
 
-export const selectEndYear = createAction(SELECT_END_YEAR, payload => payload);
+export const selectEndYearAction = createAction(
+  SELECT_END_YEAR,
+  payload => payload
+);
 
 export default handleActions(
   {
-    [ADD_CARD]: (state, action) => {
+    [CARD_LOAD_REQUEST]: (state, action) => {
+      return {
+        ...state
+      };
+    },
+    [CARD_LOAD_SUCCESS]: (state, action) => {
       const newCards = state.cards.concat();
-      newCards.push(action.payload.newCard);
+      console.log(action.payload);
+      return {
+        ...state
+      };
+    },
+    [ADD_CARD_REQUEST]: (state, action) => {
+      return {
+        ...state
+      };
+    },
+    [ADD_CARD_SUCCESS]: (state, action) => {
+      const newCards = state.cards.concat();
+      newCards.push(action.payload);
       return {
         ...state,
         cards: newCards,
         cardNumber: state.cards.length + 1
+      };
+    },
+    [ADD_CARD_FAILURE]: (state, action) => {
+      return {
+        ...state
       };
     },
     [SELECT_LOCATION]: (state, action) => {

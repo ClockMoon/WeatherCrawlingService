@@ -40,3 +40,23 @@
     text-align: center;
   }
 }
+
+.loginedForm {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(#97daeb, rgb(153, 153, 255));
+  width: 200px;
+  height: 200px;
+  border-radius: 7px;
+  font-size: 24px;
+  color: white;
+  .userId {
+    font-size: $fontBigSize;
+    font-family: $font7;
+  }
+  .logoutButton {
+    font-family: $fontK3;
+  }
+}

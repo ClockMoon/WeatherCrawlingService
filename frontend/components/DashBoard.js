@@ -15,7 +15,7 @@ const DashBoard = () => {
           return (
             <Card
               key={item.id}
-              title={item.title}
+              location={item.location}
               averageTemperture={item.averageTemperture}
               lowestTemperture={item.lowestTemperture}
               highestTemperture={item.highestTemperture}
@@ -44,7 +44,7 @@ const Card = props => {
     else e.target.parentNode.parentNode.parentNode.classList.toggle("active");
   };
   const selectedChange = value => {
-    setTitle(value);
+    setLocation(value);
   };
   const {
     averageTemperture,
@@ -61,7 +61,7 @@ const Card = props => {
     endYear
   } = props;
 
-  const [title, setTitle] = useState(props.title);
+  const [location, setLocation] = useState(props.location);
   const dummy = [];
   locationInformation.map(target => {
     dummy.push(
@@ -79,7 +79,7 @@ const Card = props => {
     <>
       <div className="card">
         <div className="card-side card-side-front">
-          <div className="cardTitle">{title}</div>
+          <div className="cardTitle">{location}</div>
           <div className="cardCreatedDate">생성일자 : 2019-05-03</div>
           <div className="cardFactor">
             <div className="cardFactorTitle">인자</div>

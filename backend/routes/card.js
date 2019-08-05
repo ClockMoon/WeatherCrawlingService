@@ -2,10 +2,81 @@ const express = require("express");
 const router = express.Router();
 const crawler = require("../utils/crawler");
 const WeatherCrawler = require("../utils/excelMaker");
+const db = require("../models");
 
-router.get("/", (req, res) => {});
+router.get("/", (req, res) => {
+  console.log(req.param);
+  return res.send("d");
+});
 
-router.post("/", (req, res) => {});
+router.post("/", async (req, res) => {
+  try {
+    const {
+      location,
+      averageTemperture,
+      lowestTemperture,
+      highestTemperture,
+      rainfall,
+      snowfall,
+      averageWindSpeed,
+      huminity,
+      sunnyHour,
+      cloudy,
+      weather,
+      startYear,
+      endYear
+    } = req.body.newCard;
+    let { user } = req.body.newCard;
+    let newCard = null;
+    if (user) {
+      user = await db.User.findOne({
+        where: {
+          userId: user
+        }
+      });
+      newCard = await db.Card.create({
+        location,
+        averageTemperture,
+        lowestTemperture,
+        highestTemperture,
+        rainfall,
+        snowfall,
+        averageWindSpeed,
+        huminity,
+        sunnyHour,
+        cloudy,
+        weather,
+        startYear,
+        endYear,
+        UserId: user.id
+      });
+    } else {
+      newCard = await db.Card.create({
+        location,
+        averageTemperture,
+        lowestTemperture,
+        highestTemperture,
+        rainfall,
+        snowfall,
+        averageWindSpeed,
+        huminity,
+        sunnyHour,
+        cloudy,
+        weather,
+        startYear,
+        endYear,
+        user: null
+      });
+    }
+
+    return res.status(200).json(newCard);
+  } catch (e) {
+    console.log(e);
+    res.status(403).send("뭔가 에러가 발생");
+  }
+
+  return res.status(200);
+});
 
 router.delete("/", (req, res) => {});
 

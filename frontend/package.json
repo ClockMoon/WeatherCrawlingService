@@ -23,6 +23,7 @@
     "react-toastify": "^5.3.2",
     "redux": "^4.0.4",
     "redux-actions": "^2.6.5",
+    "redux-saga": "^1.0.5",
     "scroll": "^3.0.1",
     "scroll-doc": "^0.2.1"
   }

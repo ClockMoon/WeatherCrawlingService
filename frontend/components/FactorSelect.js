@@ -3,7 +3,7 @@ import { PreviousMoveButton, NextMoveButton } from "./MoveButton";
 import { Checkbox } from "antd";
 import factorInformation from "../util/factorInformation";
 import { useDispatch } from "react-redux";
-import { selectFactors, selectAllFactors } from "../reducers/card";
+import { selectFactorsAction, selectAllFactorsAction } from "../reducers/card";
 const CheckboxGroup = Checkbox.Group;
 
 const factorInformationName = factorInformation.map(value => {
@@ -20,7 +20,7 @@ const FactorSelect = () => {
     setIndeterminate(false);
     setCheckAll(e.target.checked);
     dispatch(
-      selectAllFactors({
+      selectAllFactorsAction({
         allFactors: factorInformationName
       })
     );
@@ -33,7 +33,7 @@ const FactorSelect = () => {
     );
     setCheckAll(checkedList.length === factorInformationName.length);
     dispatch(
-      selectFactors({
+      selectFactorsAction({
         factors: checkedList
       })
     );

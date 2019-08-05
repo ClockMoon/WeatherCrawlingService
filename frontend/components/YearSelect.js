@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { DatePicker } from "antd";
 import { PreviousMoveButton, SubmitCardButton } from "./MoveButton";
 import { useDispatch } from "react-redux";
-import { selectStartYear, selectEndYear } from "../reducers/card";
+import { selectStartYearAction, selectEndYearAction } from "../reducers/card";
 import { toast } from "react-toastify";
 
 const { RangePicker } = DatePicker;
@@ -18,12 +18,12 @@ const YearSelect = () => {
     ]);
     setYearValue(yearValue);
     dispatch(
-      selectStartYear({
+      selectStartYearAction({
         startYear: yearValue[0].format("YYYY")
       })
     );
     dispatch(
-      selectEndYear({
+      selectEndYearAction({
         endYear: yearValue[1].format("YYYY")
       })
     );
@@ -32,12 +32,12 @@ const YearSelect = () => {
   const onYearChange = yearValue => {
     setYearValue(yearValue);
     dispatch(
-      selectStartYear({
+      selectStartYearAction({
         startYear: yearValue[0].format("YYYY")
       })
     );
     dispatch(
-      selectEndYear({
+      selectEndYearAction({
         endYear: yearValue[1].format("YYYY")
       })
     );

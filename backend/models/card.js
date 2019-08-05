@@ -4,8 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       location: {
         type: DataTypes.STRING(20),
-        allowNull: false,
-        unique: true
+        allowNull: false
       },
       averageTemperture: {
         type: DataTypes.BOOLEAN,
@@ -19,11 +18,11 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.BOOLEAN,
         defaultValue: false
       },
-      rainFall: {
+      rainfall: {
         type: DataTypes.BOOLEAN,
         defaultValue: false
       },
-      snowFall: {
+      snowfall: {
         type: DataTypes.BOOLEAN,
         defaultValue: false
       },
@@ -35,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.BOOLEAN,
         defaultValue: false
       },
-      dayLightTime: {
+      sunnyHour: {
         type: DataTypes.BOOLEAN,
         defaultValue: false
       },
@@ -47,11 +46,11 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.BOOLEAN,
         defaultValue: false
       },
-      startYears: {
+      startYear: {
         type: DataTypes.INTEGER,
         allowNull: false
       },
-      endYears: {
+      endYear: {
         type: DataTypes.INTEGER,
         allowNull: false
       }

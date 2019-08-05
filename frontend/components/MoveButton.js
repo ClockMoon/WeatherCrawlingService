@@ -1,7 +1,7 @@
 import scroll from "scroll";
 import scrollDoc from "scroll-doc";
 import { useDispatch, useSelector } from "react-redux";
-import { addCard } from "../reducers/card";
+import { addCardAction } from "../reducers/card";
 import { toast } from "react-toastify";
 
 const page = scrollDoc();
@@ -56,9 +56,10 @@ export const SubmitCardButton = () => {
   const startYear = useSelector(state => state.card.startYear);
   const endYear = useSelector(state => state.card.endYear);
   const cardNumber = useSelector(state => state.card.cardNumber);
+  const user = useSelector(state => state.user.user);
   const newCard = {
     id: cardNumber,
-    title: location,
+    location,
     averageTemperture: factors.find(value => value == "평균기온")
       ? true
       : false,
@@ -74,7 +75,8 @@ export const SubmitCardButton = () => {
     cloudy: factors.find(value => value == "운량") ? true : false,
     weather: factors.find(value => value == "날씨") ? true : false,
     startYear,
-    endYear
+    endYear,
+    user
   };
   const submitCreateCard = e => {
     if (location && factors.length && startYear && endYear) {
@@ -83,7 +85,7 @@ export const SubmitCardButton = () => {
       nowScrollLocation = fragment;
       scroll.top(page, nowScrollLocation);
       dispatch(
-        addCard({
+        addCardAction({
           newCard
         })
       );
