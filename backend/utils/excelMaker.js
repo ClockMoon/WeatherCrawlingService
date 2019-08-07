@@ -58,6 +58,19 @@ module.exports = class WeatherCrawler {
         day: 32
       }
     ]; // 7월 부터 하나씩 부족한 현상
+
+    this.worksheet.cell(1, 1).string("지역코드");
+    this.worksheet.cell(1, 2).string("일자");
+    this.worksheet.cell(1, 3).string("평균기온");
+    this.worksheet.cell(1, 4).string("최저기온");
+    this.worksheet.cell(1, 5).string("최고기온");
+    this.worksheet.cell(1, 6).string("강수량");
+    this.worksheet.cell(1, 7).string("신적설");
+    this.worksheet.cell(1, 8).string("평균풍속");
+    this.worksheet.cell(1, 9).string("상대습도");
+    this.worksheet.cell(1, 10).string("일조시간");
+    this.worksheet.cell(1, 11).string("운량");
+    this.worksheet.cell(1, 12).string("날씨");
   }
 
   getGlobalDay() {

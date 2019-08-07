@@ -3,9 +3,9 @@ const router = express.Router();
 const crawler = require("../utils/crawler");
 const WeatherCrawler = require("../utils/excelMaker");
 const db = require("../models");
+const passport = require("passport");
 
 router.get("/", (req, res) => {
-  console.log(req.param);
   return res.send("d");
 });
 
@@ -31,7 +31,7 @@ router.post("/", async (req, res) => {
     if (user) {
       user = await db.User.findOne({
         where: {
-          userId: user
+          userId: user.userId
         }
       });
       newCard = await db.Card.create({
@@ -92,8 +92,8 @@ let crawlerCase = null;
 
 function makeExcelFile(req, res) {
   crawlerCase = new WeatherCrawler();
-  const dummy = req.body.dummy;
-  processArray(dummy, res);
+  const cards = req.body.data.fileData;
+  processArray(cards, res);
 }
 
 async function processFunc(information) {

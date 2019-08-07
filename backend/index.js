@@ -9,27 +9,33 @@ const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
 const passport = require("passport");
+const passportConfig = require("./passport");
 
 dotenv.config();
-
 db.sequelize.sync();
+passportConfig();
 
+app.use(morgan("dev"));
+app.use(
+  cors({
+    origin: true,
+    credentials: true
+  })
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
-app.use(morgan("dev"));
-app.set("trust proxy", 1);
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(
   session({
-    secret: process.env.COOKIE_SECRET,
+    key: "sid",
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
+    secret: process.env.COOKIE_SECRET,
     cookie: {
       httpOnly: true,
-      secure: true,
-      maxAge: 1000000
-    }
+      secure: false
+    },
+    name: "fpqkda"
   })
 );
 app.use(passport.initialize());

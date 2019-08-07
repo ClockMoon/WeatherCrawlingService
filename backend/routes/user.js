@@ -2,46 +2,55 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const router = express.Router();
 const db = require("../models");
+const passport = require("passport");
 
 router.get("/", (req, res) => {
-  res.send("user");
-  return res.status(200);
+  if (!req.user) {
+    return res.status(401).send("Is Not Login");
+  }
+  const user = Object.assign({}, req.user.toJSON());
+  delete user.password;
+  return res.json(user);
 });
 
-router.post("/", async (req, res, next) => {
-  try {
-    const userId = req.body.userId;
-    const password = req.body.password;
-    const alreadyExistUser = await db.User.findOne({
-      where: {
-        userId: req.body.userId
+router.post("/login", (req, res, next) => {
+  passport.authenticate("local", (err, user, info) => {
+    if (err) {
+      console.error(err);
+      return next(err);
+    }
+    if (info) {
+      return res.status(401).send(info.reason);
+    }
+    return req.login(user, async loginErr => {
+      try {
+        if (loginErr) {
+          return next(loginErr);
+        }
+        const fullUser = await db.User.findOne({
+          where: { id: user.id },
+          include: [
+            {
+              model: db.Card,
+              as: "Cards",
+              limit: 3,
+              order: [["createdAt", "DESC"]]
+            }
+          ],
+          attributes: ["userId"]
+        });
+        return res.json(fullUser);
+      } catch (e) {
+        next(e);
       }
     });
-    if (alreadyExistUser) {
-      const checkPassword = await bcrypt.compare(
-        password,
-        alreadyExistUser.password
-      );
-      if (checkPassword) {
-        req.session.userId = userId;
-        return res.status(200).json(alreadyExistUser.userId);
-      } else return res.status(403);
-    }
-    const hashedPassword = await bcrypt.hash(password, 12);
-    const newUser = await db.User.create({
-      userId,
-      password: hashedPassword
-    });
-    req.session.userId = userId;
-    return res.status(200).json(newUser);
-  } catch (e) {
-    console.error(e);
-    return next(e);
-  }
+  })(req, res, next);
 });
 
-router.put("/", async (req, res) => {});
-
-router.delete("/", async (req, res) => {});
+router.post("/logout", (req, res) => {
+  req.logout();
+  req.session.destroy();
+  res.status(200).send("logout 성공");
+});
 
 module.exports = router;

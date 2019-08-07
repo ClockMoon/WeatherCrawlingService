@@ -47,6 +47,6 @@ describe("기상청 HTTP 응답", () => {
     });
     result.title.should.exactly("[ 일평균기온(℃) ] 108 서울 / 2019년");
     result.factors.should.be.instanceOf(Array);
-    result.factors.should.have.length(411);
+    result.factors.should.have.length(412);
   });
 });
