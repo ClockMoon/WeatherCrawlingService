@@ -17,7 +17,7 @@ import {
   failureLoginMessage,
   requestLogoutMessage
 } from "../components/LoginForm";
-axios.defaults.baseURL = "http://localhost:8080/api";
+axios.defaults.baseURL = "http://172.31.41.195/api";
 
 function loginAPI(loginData) {
   return axios.post("/user/login", loginData, {
