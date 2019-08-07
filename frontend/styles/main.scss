@@ -81,6 +81,8 @@ $mainColor: linear-gradient(#97daeb, rgb(153, 153, 255));
 @import "./factorSelect.scss";
 @import "./yearSelect.scss";
 @import "./moveButton.scss";
+@import "./error.scss";
+
 html {
   overflow: hidden;
 }

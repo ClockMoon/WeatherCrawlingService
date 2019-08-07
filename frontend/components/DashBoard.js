@@ -3,34 +3,69 @@ import { Select } from "antd";
 import locationInformation from "../util/locationInformation";
 import { CreateCardButton } from "./MoveButton";
 import { useDispatch, useSelector } from "react-redux";
+import { fileDownloadAction } from "../reducers/card";
+import factorInformation from "../util/factorInformation";
+import { toast } from "react-toastify";
+
+export const requestFileMessage = () => {
+  toast.info("생성중입니다.", {
+    position: toast.POSITION.BOTTOM_RIGHT
+  });
+  return null;
+};
+
+export const successFileMessage = () => {
+  toast.success("파일이 생성되었습니다!", {
+    position: toast.POSITION.BOTTOM_RIGHT
+  });
+  return null;
+};
+
+export const failureFileMessage = () => {
+  toast.error("파일 생성에 실패했습니다.!", {
+    position: toast.POSITION.BOTTOM_RIGHT
+  });
+  return null;
+};
 
 const { Option } = Select;
 
 const DashBoard = () => {
-  const dummy = useSelector(state => state.card.cards);
+  const user = useSelector(state => state.user.user);
+  let cards = useSelector(state => state.card.cards);
+
   return (
     <div className="dashboardContainer">
       <div className="cardContainer">
-        {dummy.map((item, index) => {
-          return (
-            <Card
-              key={item.id}
-              location={item.location}
-              averageTemperture={item.averageTemperture}
-              lowestTemperture={item.lowestTemperture}
-              highestTemperture={item.highestTemperture}
-              rainfall={item.rainfall}
-              snowfall={item.snowfall}
-              averageWindSpeed={item.averageWindSpeed}
-              huminity={item.huminity}
-              sunnyHour={item.sunnyHour}
-              cloudy={item.cloudy}
-              weather={item.weather}
-              startYear={item.startYear}
-              endYear={item.endYear}
-            />
-          );
-        })}
+        {cards.length ? (
+          cards.map((item, index) => {
+            return (
+              <Card
+                key={item.id}
+                location={item.location}
+                averageTemperture={item.averageTemperture}
+                lowestTemperture={item.lowestTemperture}
+                highestTemperture={item.highestTemperture}
+                rainfall={item.rainfall}
+                snowfall={item.snowfall}
+                averageWindSpeed={item.averageWindSpeed}
+                huminity={item.huminity}
+                sunnyHour={item.sunnyHour}
+                cloudy={item.cloudy}
+                weather={item.weather}
+                startYear={item.startYear}
+                endYear={item.endYear}
+              />
+            );
+          })
+        ) : (
+          <div className="noCardNoticeContainer">
+            <div className="noCardNotice">카드가 없습니다.</div>
+            <div className="noCardNotice">
+              파일 생성을 위해 로그인 하거나, 카드를 생성하세요
+            </div>
+          </div>
+        )}
       </div>
       <CreateCardButton />
     </div>
@@ -74,37 +109,91 @@ const Card = props => {
       </Option>
     );
   });
+  const dispatch = useDispatch();
+  const onFileDownload = e => {
+    const fileData = [];
+    const rootNode = e.target.parentNode.parentNode;
+    const location = rootNode.querySelector(".cardLocation").innerHTML;
+    const factors = Array.from(rootNode.querySelectorAll(".factor"))
+      .map(value => value.innerHTML)
+      .filter(value => value);
+    const startYear = rootNode
+      .querySelector(".startYear")
+      .innerHTML.match(/\d{4}/)[0];
+    const endYear = rootNode
+      .querySelector(".endYear")
+      .innerHTML.match(/\d{4}/)[0];
+
+    const convertLocationCode = location => {
+      const targetLocation = locationInformation.filter(
+        target => target.location == location
+      );
+      return targetLocation[0].code;
+    };
+
+    const convertFactorCode = factor => {
+      const targetFactor = factorInformation.filter(
+        target => target.factor == factor
+      );
+      return targetFactor[0].code;
+    };
+
+    for (let i = startYear; i <= endYear; i++) {
+      factors.map(factor => {
+        fileData.push({
+          locationCode: convertLocationCode(location),
+          year: Number(i),
+          factorCode: convertFactorCode(factor)
+        });
+      });
+    }
+    dispatch(
+      fileDownloadAction({
+        fileData: fileData
+      })
+    );
+  };
 
   return (
     <>
       <div className="card">
         <div className="card-side card-side-front">
-          <div className="cardTitle">{location}</div>
-          <div className="cardCreatedDate">생성일자 : 2019-05-03</div>
+          <div className="cardLocationTitle">위치</div>
+          <div className="cardLocation">{location}</div>
           <div className="cardFactor">
             <div className="cardFactorTitle">인자</div>
             <div className="cardFactorFactors">
-              <div>{averageTemperture ? "평균기온" : null}</div>
-              <div>{lowestTemperture ? "최저기온" : null}</div>
-              <div>{highestTemperture ? "최고기온" : null}</div>
-              <div>{rainfall ? "강수량" : null}</div>
-              <div>{snowfall ? "신적설" : null}</div>
-              <div>{averageWindSpeed ? "평균풍속" : null}</div>
-              <div>{huminity ? "상대습도" : null}</div>
-              <div>{sunnyHour ? "일조시간" : null}</div>
-              <div>{cloudy ? "운량" : null}</div>
-              <div>{weather ? "날씨" : null}</div>
+              <div className="factor">
+                {averageTemperture ? "평균기온" : null}
+              </div>
+              <div className="factor">
+                {lowestTemperture ? "최저기온" : null}
+              </div>
+              <div className="factor">
+                {highestTemperture ? "최고기온" : null}
+              </div>
+              <div className="factor">{rainfall ? "강수량" : null}</div>
+              <div className="factor">{snowfall ? "신적설" : null}</div>
+              <div className="factor">
+                {averageWindSpeed ? "평균풍속" : null}
+              </div>
+              <div className="factor">{huminity ? "상대습도" : null}</div>
+              <div className="factor">{sunnyHour ? "일조시간" : null}</div>
+              <div className="factor">{cloudy ? "운량" : null}</div>
+              <div className="factor">{weather ? "날씨" : null}</div>
             </div>
           </div>
           <div className="cardYear">
             <div className="cardYearTitle">년도</div>
             <div className="cardYears">
               <div className="startYear">{startYear} 년부터&nbsp;</div>
-              <div className="endYear">{endYear}년까지</div>
+              <div className="endYear">{endYear} 년까지</div>
             </div>
           </div>
           <div className="createFileButton">
-            <div className="colorFont">파일 생성</div>
+            <div className="colorFont" onClick={onFileDownload}>
+              파일 생성
+            </div>
           </div>
           <div className="editButton" onClick={onClickMethod}>
             <div className="colorFont">카드 수정</div>

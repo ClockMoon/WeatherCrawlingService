@@ -1,52 +1,26 @@
 import { createAction, handleActions } from "redux-actions";
-
-const dummy = [
-  {
-    id: 998,
-    location: "서울",
-    averageTemperture: true,
-    lowestTemperture: true,
-    highestTemperture: true,
-    rainfall: true,
-    snowfall: true,
-    averageWindSpeed: true,
-    huminity: true,
-    sunnyHour: true,
-    cloudy: true,
-    weather: true,
-    startYear: 1960,
-    endYear: 2010
-  },
-  {
-    id: 999,
-    location: "대구",
-    averageTemperture: true,
-    lowestTemperture: true,
-    highestTemperture: true,
-    rainfall: true,
-    snowfall: true,
-    averageWindSpeed: true,
-    huminity: true,
-    sunnyHour: true,
-    cloudy: true,
-    weather: true,
-    startYear: 1968,
-    endYear: 2018
-  }
-];
-
+const cards = [];
 export const initialState = {
-  cardNumber: dummy.length,
-  cards: dummy,
+  cardNumber: cards.length,
+  cards: cards,
   location: null,
   factors: [],
   startYear: null,
-  endYear: null
+  endYear: null,
+  isCreatingCard: false
 };
 
 export const ADD_CARD_REQUEST = "ADD_CARD_REQUEST";
 export const ADD_CARD_SUCCESS = "ADD_CARD_SUCCESS";
 export const ADD_CARD_FAILURE = "ADD_CARD_FAILURE";
+
+export const CARD_LOAD_REQUEST = "CARD_LOAD_REQUEST";
+export const CARD_LOAD_SUCCESS = "CARD_LOAD_SUCCESS";
+export const CARD_LOAD_FAILURE = "CARD_LOAD_FAILURE";
+
+export const CARD_EMPTY_REQUEST = "CARD_EMPTY_REQUEST";
+export const CARD_EMPTY_SUCCESS = "CARD_EMPTY_SUCCESS";
+export const CARD_EMPTY_FAILURE = "CARD_EMPTY_FAILURE";
 
 export const MODIFY_CARD_NUMBER = "MODIFY_CARD_NUMBER";
 
@@ -56,9 +30,9 @@ export const SELECT_ALL_FACTORS = "SELECT_ALL_FACTORS";
 export const SELECT_START_YEAR = "SELECT_START_YEAR";
 export const SELECT_END_YEAR = "SELECT_END_YEAR";
 
-export const CARD_LOAD_REQUEST = "CARD_LOAD_REQUEST";
-export const CARD_LOAD_SUCCESS = "CARD_LOAD_SUCCESS";
-export const CARD_LOAD_FAILURE = "CARD_LOAD_FAILURE";
+export const FILE_DOWNLOAD_REQUEST = "FILE_DOWNLOAD_REQUEST";
+export const FILE_DOWNLOAD_SUCCESS = "FILE_DOWNLOAD_SUCCESS";
+export const FILE_DOWNLOAD_FAILURE = "FILE_DOWNLOAD_FAILURE";
 
 export const addCardAction = createAction(ADD_CARD_REQUEST, payload => payload);
 export const modifyCardNumber = createAction(
@@ -89,20 +63,12 @@ export const selectEndYearAction = createAction(
   payload => payload
 );
 
+export const fileDownloadAction = createAction(
+  FILE_DOWNLOAD_REQUEST,
+  payload => payload
+);
 export default handleActions(
   {
-    [CARD_LOAD_REQUEST]: (state, action) => {
-      return {
-        ...state
-      };
-    },
-    [CARD_LOAD_SUCCESS]: (state, action) => {
-      const newCards = state.cards.concat();
-      console.log(action.payload);
-      return {
-        ...state
-      };
-    },
     [ADD_CARD_REQUEST]: (state, action) => {
       return {
         ...state
@@ -118,6 +84,59 @@ export default handleActions(
       };
     },
     [ADD_CARD_FAILURE]: (state, action) => {
+      return {
+        ...state
+      };
+    },
+    [CARD_LOAD_REQUEST]: (state, action) => {
+      return {
+        ...state
+      };
+    },
+    [CARD_LOAD_SUCCESS]: (state, action) => {
+      const newCards = state.cards.concat();
+      action.payload.map(value => {
+        newCards.push(value);
+      });
+      return {
+        ...state,
+        cards: newCards,
+        cardNumber: state.cards.length + 1
+      };
+    },
+    [CARD_LOAD_FAILURE]: (state, action) => {
+      return {
+        ...state
+      };
+    },
+    [CARD_EMPTY_REQUEST]: (state, action) => {
+      return {
+        ...state
+      };
+    },
+    [CARD_EMPTY_SUCCESS]: (state, action) => {
+      return {
+        ...state,
+        cards: [],
+        cardNumber: 0
+      };
+    },
+    [CARD_EMPTY_FAILURE]: (state, action) => {
+      return {
+        ...state
+      };
+    },
+    [FILE_DOWNLOAD_REQUEST]: (state, action) => {
+      return {
+        ...state
+      };
+    },
+    [FILE_DOWNLOAD_SUCCESS]: (state, action) => {
+      return {
+        ...state
+      };
+    },
+    [FILE_DOWNLOAD_FAILURE]: (state, action) => {
       return {
         ...state
       };

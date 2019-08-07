@@ -53,14 +53,15 @@
   align-items: center;
 }
 
-.cardTitle {
+.cardLocationTitle {
   margin: 10px 0px 0px 0px;
   font-size: $fontBigSize;
   text-align: center;
 }
-.cardCreatedDate {
-  margin: 10px 10px 0px 0px;
-  text-align: right;
+.cardLocation {
+  margin: 10px 0px 0px 0px;
+  font-size: $fontMiddleSize;
+  text-align: center;
 }
 
 .cardFactor {
@@ -173,4 +174,14 @@ select {
   -moz-appearance: none;
   appearance: none;
   color: #65c2da;
+}
+.noCardNoticeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.noCardNotice {
+  font-size: $fontMiddleSize;
+  font-family: $fontK1;
 }

@@ -1,7 +1,6 @@
 import { createAction, handleActions } from "redux-actions";
 
 export const initialState = {
-  isLoggedIn: false,
   user: null,
   isLoggingIn: false,
   logInErrorReason: ""
@@ -13,9 +12,15 @@ export const LOG_IN_FAILURE = "LOG_IN_FAILURE";
 
 export const LOG_OUT_SUCCESS = "LOG_OUT_SUCCESS";
 export const LOG_OUT_REQUEST = "LOG_OUT_REQUEST";
+export const LOG_OUT_FAILURE = "LOG_OUT_FAILURE";
+
+export const LOAD_USER_SUCCESS = "LOAD_USER_SUCCESS";
+export const LOAD_USER_REQUEST = "LOAD_USER_REQUEST";
+export const LOAD_USER_FAILURE = "LOAD_USER_FAILURE";
 
 export const loginAction = createAction(LOG_IN_REQUEST, payload => payload);
 export const logoutAction = createAction(LOG_OUT_REQUEST);
+export const loadUserAction = createAction(LOAD_USER_REQUEST);
 
 export default handleActions(
   {
@@ -29,8 +34,6 @@ export default handleActions(
     [LOG_IN_SUCCESS]: (state, action) => {
       return {
         ...state,
-        isLoggingIn: false,
-        isLoggedIn: true,
         logInErrorReason: "",
         user: action.payload
       };
@@ -39,7 +42,7 @@ export default handleActions(
       return {
         ...state,
         isLoggingIn: false,
-        logInErrorReason: action.payload
+        logInErrorReason: "로그인 에러"
       };
     },
     [LOG_OUT_REQUEST]: (state, action) => {
@@ -52,8 +55,29 @@ export default handleActions(
       return {
         ...state,
         isLoggingIn: false,
-        isLoggedIn: false,
         user: null
+      };
+    },
+    [LOG_OUT_FAILURE]: (state, action) => {
+      return {
+        ...state,
+        isLoggingIn: false
+      };
+    },
+    [LOAD_USER_REQUEST]: (state, action) => {
+      return {
+        ...state
+      };
+    },
+    [LOAD_USER_SUCCESS]: (state, action) => {
+      return {
+        ...state,
+        user: action.payload
+      };
+    },
+    [LOAD_USER_FAILURE]: (state, action) => {
+      return {
+        ...state
       };
     }
   },

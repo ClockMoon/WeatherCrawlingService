@@ -38,6 +38,7 @@
   }
   .loginButton {
     text-align: center;
+    cursor: pointer;
   }
 }
 
@@ -58,5 +59,6 @@
   }
   .logoutButton {
     font-family: $fontK3;
+    cursor: pointer;
   }
 }

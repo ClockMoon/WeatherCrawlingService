@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { loginAction, logoutAction } from "../reducers/user";
+import { toast } from "react-toastify";
 
 const LoginForm = () => {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector(state => state.user.isLoggedIn);
-  const loginId = useSelector(state => state.user.user);
+  const user = useSelector(state => state.user.user);
   const onChangeId = e => {
     setUserId(e.target.value);
   };
@@ -28,10 +27,10 @@ const LoginForm = () => {
   };
   return (
     <div className="loginFormContainer">
-      {isLoggedIn ? (
+      {user ? (
         <div>
           <div className="loginedForm">
-            <div className="userId">{loginId}</div>
+            <div className="userId">{user.userId}</div>
             <div onClick={requestLogout} className="logoutButton">
               로그 아웃
             </div>
@@ -65,6 +64,34 @@ const LoginForm = () => {
       )}
     </div>
   );
+};
+
+export const requestLoginMessage = () => {
+  toast.info("로그인을 시도합니다.", {
+    position: toast.POSITION.BOTTOM_RIGHT
+  });
+  return;
+};
+
+export const successLoginMessage = () => {
+  toast.success("로그인을 성공하였습니다.", {
+    position: toast.POSITION.BOTTOM_RIGHT
+  });
+  return;
+};
+
+export const failureLoginMessage = reason => {
+  toast.error(reason, {
+    position: toast.POSITION.BOTTOM_RIGHT
+  });
+  return;
+};
+
+export const requestLogoutMessage = () => {
+  toast.info("로그아웃을 합니다.", {
+    position: toast.POSITION.BOTTOM_RIGHT
+  });
+  return;
 };
 
 export default LoginForm;

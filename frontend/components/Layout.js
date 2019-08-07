@@ -1,13 +1,16 @@
 import React, { useEffect } from "react";
-import Head from "next/head";
+import { useSelector, useDispatch } from "react-redux";
 import scroll from "scroll";
 import scrollDoc from "scroll-doc";
+import { LOAD_USER_REQUEST, loadUserAction } from "../reducers/user";
 
 const page = scrollDoc();
 let fragment = 0;
 let nowScrollLocation = fragment;
 
 const Layout = ({ children }) => {
+  const dispatch = useDispatch();
+  const user = useSelector(state => state.user.user);
   useEffect(() => {
     let totalPageSize;
     let fragment;
@@ -68,8 +71,9 @@ const Layout = ({ children }) => {
           <div onClick={goDashBoard} className="colorFont dashBoard">
             DashBoard
           </div>
+
           <div onClick={goLogin} className="colorFont login">
-            Login
+            {user ? "Info" : "Login"}
           </div>
         </div>
       </div>
@@ -77,5 +81,4 @@ const Layout = ({ children }) => {
     </div>
   );
 };
-
 export default Layout;

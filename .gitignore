@@ -2,3 +2,6 @@ node_modules
 package-lock.json
 .next
 .env
+frontend/build/
+frontend/.next
+frontend/bundles

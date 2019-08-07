@@ -3,7 +3,6 @@ import { DatePicker } from "antd";
 import { PreviousMoveButton, SubmitCardButton } from "./MoveButton";
 import { useDispatch } from "react-redux";
 import { selectStartYearAction, selectEndYearAction } from "../reducers/card";
-import { toast } from "react-toastify";
 
 const { RangePicker } = DatePicker;
 

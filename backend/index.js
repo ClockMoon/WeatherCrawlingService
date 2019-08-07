@@ -43,6 +43,6 @@ app.use(passport.session());
 app.use("/api/user", userAPIRouter);
 app.use("/api/card", cardAPIRouter);
 
-app.listen(8080, () => {
+app.listen(process.env.PORT, () => {
   console.log("server~~~~run~~~Yea~~");
 });
