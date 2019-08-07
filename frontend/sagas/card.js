@@ -15,7 +15,7 @@ import {
 } from "../components/DashBoard";
 
 function addCardAPI(cardData) {
-  return axios.post("http://172.31.41.195/api/card", cardData);
+  return axios.post("http://52.79.89.94/api/card", cardData);
 }
 
 function* addCard(action) {
@@ -39,7 +39,7 @@ function* watchingAddCard() {
 
 function fileDownloadAPI(data) {
   return axios({
-    url: "http://172.31.41.195/api/card/excel",
+    url: "http://52.79.89.94/api/card/excel",
     method: "POST",
     data: {
       data
