@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import createSagaMiddleware from "redux-saga";
 import rootSaga from "../sagas";
-import Axios from "../../backend/node_modules/axios";
+import Axios from "axios";
 import { LOAD_USER_REQUEST } from "../reducers/user";
 
 const Index = ({ Component, store }) => {
