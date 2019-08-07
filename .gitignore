@@ -5,3 +5,4 @@ package-lock.json
 frontend/build/
 frontend/.next
 frontend/bundles
+.pem
