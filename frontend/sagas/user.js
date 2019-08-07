@@ -9,7 +9,7 @@ import {
   LOAD_USER_FAILURE,
   LOAD_USER_SUCCESS
 } from "../reducers/user";
-import axios from "../../backend/node_modules/axios";
+import axios from "axios";
 import { CARD_LOAD_SUCCESS, CARD_EMPTY_SUCCESS } from "../reducers/card";
 import {
   requestLoginMessage,

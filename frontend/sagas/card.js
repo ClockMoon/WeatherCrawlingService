@@ -7,7 +7,7 @@ import {
   FILE_DOWNLOAD_FAILURE,
   FILE_DOWNLOAD_SUCCESS
 } from "../reducers/card";
-import axios from "../../backend/node_modules/axios";
+import axios from "axios";
 import {
   requestFileMessage,
   successFileMessage,
