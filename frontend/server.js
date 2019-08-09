@@ -4,8 +4,13 @@ const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const expressSession = require("express-session");
 const dotenv = require("dotenv");
+
 const dev = process.env.NODE_ENV !== "production";
 const prod = process.env.NODE_ENV === "production";
+
+exports.nodeEnvProd = () => {
+  return prod;
+};
 
 const app = next({
   dev
@@ -37,7 +42,7 @@ app.prepare().then(() => {
     return handle(req, res);
   });
 
-  server.listen(process.env.PORT, err => {
+  server.listen(prod ? process.env.PORT : "3065", err => {
     console.log("frontServer run~~");
   });
 });

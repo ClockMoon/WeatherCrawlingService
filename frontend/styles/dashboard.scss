@@ -4,10 +4,10 @@
 }
 
 .dashboardContainer {
-  display: grid;
+  display: flex;
   width: 100%;
   height: 100%;
-  grid-template-columns: 90% 10%;
+  flex-direction: column;
   animation: showUpAnimation 2s;
 }
 .cardContainer {
@@ -184,4 +184,13 @@ select {
 .noCardNotice {
   font-size: $fontMiddleSize;
   font-family: $fontK1;
+}
+
+.editCompleteButton {
+  cursor: pointer;
+}
+
+.deleteCardButton {
+  cursor: pointer;
+  margin-top: 10px;
 }

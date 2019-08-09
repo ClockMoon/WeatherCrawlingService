@@ -40,7 +40,6 @@ const FactorSelect = () => {
   };
   return (
     <div className="factorSelectContainer">
-      <PreviousMoveButton />
       <div className="factorContainer">
         <Checkbox
           onChange={onCheckAllChange}
@@ -56,7 +55,10 @@ const FactorSelect = () => {
           onChange={onCheckChange}
         />
       </div>
-      <NextMoveButton />
+      <div className="buttonsContainer">
+        <PreviousMoveButton />
+        <NextMoveButton />
+      </div>
     </div>
   );
 };

@@ -22,6 +22,14 @@ export const CARD_EMPTY_REQUEST = "CARD_EMPTY_REQUEST";
 export const CARD_EMPTY_SUCCESS = "CARD_EMPTY_SUCCESS";
 export const CARD_EMPTY_FAILURE = "CARD_EMPTY_FAILURE";
 
+export const CARD_EDIT_REQUEST = "CARD_EDIT_REQUEST";
+export const CARD_EDIT_SUCCESS = "CARD_EDIT_SUCCESS";
+export const CARD_EDIT_FAILURE = "CARD_EDIT_FAILURE";
+
+export const CARD_DELETE_REQUEST = "CARD_DELETE_REQUEST";
+export const CARD_DELETE_SUCCESS = "CARD_DELETE_SUCCESS";
+export const CARD_DELETE_FAILURE = "CARD_DELETE_FAILURE";
+
 export const MODIFY_CARD_NUMBER = "MODIFY_CARD_NUMBER";
 
 export const SELECT_LOCATION = "SELECT_LOCATION";
@@ -35,6 +43,17 @@ export const FILE_DOWNLOAD_SUCCESS = "FILE_DOWNLOAD_SUCCESS";
 export const FILE_DOWNLOAD_FAILURE = "FILE_DOWNLOAD_FAILURE";
 
 export const addCardAction = createAction(ADD_CARD_REQUEST, payload => payload);
+
+export const cardEditAction = createAction(
+  CARD_EDIT_REQUEST,
+  payload => payload
+);
+
+export const cardDeleteAction = createAction(
+  CARD_DELETE_REQUEST,
+  payload => payload
+);
+
 export const modifyCardNumber = createAction(
   MODIFY_CARD_NUMBER,
   payload => payload
@@ -84,6 +103,43 @@ export default handleActions(
       };
     },
     [ADD_CARD_FAILURE]: (state, action) => {
+      return {
+        ...state
+      };
+    },
+    [CARD_EDIT_REQUEST]: (state, action) => {
+      return {
+        ...state
+      };
+    },
+    [CARD_EDIT_SUCCESS]: (state, action) => {
+      const newCardAfterEdit = state.cards.concat();
+      newCardAfterEdit.find(target => target.id == action.payload.id).location =
+        action.payload.location;
+      return {
+        ...state
+      };
+    },
+    [CARD_EDIT_FAILURE]: (state, action) => {
+      return {
+        ...state
+      };
+    },
+    [CARD_DELETE_REQUEST]: (state, action) => {
+      return {
+        ...state
+      };
+    },
+    [CARD_DELETE_SUCCESS]: (state, action) => {
+      const newCards = state.cards
+        .concat()
+        .filter(target => target.id != action.payload.id);
+      return {
+        ...state,
+        cards: newCards
+      };
+    },
+    [CARD_DELETE_FAILURE]: (state, action) => {
       return {
         ...state
       };

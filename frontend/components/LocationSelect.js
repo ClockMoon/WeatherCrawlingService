@@ -6,50 +6,54 @@ import { selectLocationAction } from "../reducers/card";
 const LocationSelect = () => {
   return (
     <div className="locationSelectContainer">
-      <PreviousMoveButton />
-      <div className="locationContainer">
-        <div>
-          <Location
-            locationInformation={locationInformation}
-            startIndex={0}
-            endIndex={20}
-            key={1}
-          />
-        </div>
-        <div>
-          <Location
-            locationInformation={locationInformation}
-            startIndex={20}
-            endIndex={40}
-            key={2}
-          />
-        </div>
-        <div>
-          <Location
-            locationInformation={locationInformation}
-            startIndex={40}
-            endIndex={60}
-            key={3}
-          />
-        </div>
-        <div>
-          <Location
-            locationInformation={locationInformation}
-            startIndex={60}
-            endIndex={80}
-            key={4}
-          />
-        </div>
-        <div>
-          <Location
-            locationInformation={locationInformation}
-            startIndex={80}
-            endIndex={100}
-            key={5}
-          />
+      <div className="locationContainerContainer">
+        <div className="locationContainer">
+          <div>
+            <Location
+              locationInformation={locationInformation}
+              startIndex={0}
+              endIndex={20}
+              key={1}
+            />
+          </div>
+          <div>
+            <Location
+              locationInformation={locationInformation}
+              startIndex={20}
+              endIndex={40}
+              key={2}
+            />
+          </div>
+          <div>
+            <Location
+              locationInformation={locationInformation}
+              startIndex={40}
+              endIndex={60}
+              key={3}
+            />
+          </div>
+          <div>
+            <Location
+              locationInformation={locationInformation}
+              startIndex={60}
+              endIndex={80}
+              key={4}
+            />
+          </div>
+          <div>
+            <Location
+              locationInformation={locationInformation}
+              startIndex={80}
+              endIndex={100}
+              key={5}
+            />
+          </div>
         </div>
       </div>
-      <NextMoveButton />
+      <div className="buttonsContainer">
+        <PreviousMoveButton />
+        <NextMoveButton />
+      </div>
     </div>
   );
 };

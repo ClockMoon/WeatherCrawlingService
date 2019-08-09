@@ -2,12 +2,20 @@
   height: 100vh;
   // color: darkgray;
 }
+.locationContainerContainer {
+  width: 100%;
+  height: calc(100vh - 50px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .locationSelectContainer {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 .locationContainer {
   width: 60%;

@@ -62,6 +62,12 @@ const LoginForm = () => {
           </div>
         </form>
       )}
+      <div className="notice">
+        <div>Info</div>
+        <div> 로그인 시 만든 카드가 저장됩니다.</div>
+        <div>이미 있는 아이디라면 로그인 합니다.</div>
+        <div>기존에 없는 아이디라면 회원가입 후 합니다.</div>
+      </div>
     </div>
   );
 };

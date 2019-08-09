@@ -3,7 +3,11 @@ import { Select } from "antd";
 import locationInformation from "../util/locationInformation";
 import { CreateCardButton } from "./MoveButton";
 import { useDispatch, useSelector } from "react-redux";
-import { fileDownloadAction } from "../reducers/card";
+import {
+  fileDownloadAction,
+  cardEditAction,
+  cardDeleteAction
+} from "../reducers/card";
 import factorInformation from "../util/factorInformation";
 import { toast } from "react-toastify";
 
@@ -28,6 +32,47 @@ export const failureFileMessage = () => {
   return null;
 };
 
+export const requestCardEdit = () => {
+  toast.info("수정중입니다.", {
+    position: toast.POSITION.BOTTOM_RIGHT
+  });
+  return null;
+};
+
+export const successCardEdit = () => {
+  toast.success("수정되었습니다!", {
+    position: toast.POSITION.BOTTOM_RIGHT
+  });
+  return null;
+};
+
+export const failureCardEdit = () => {
+  toast.error("수정에 실패했습니다.!", {
+    position: toast.POSITION.BOTTOM_RIGHT
+  });
+  return null;
+};
+export const requestCardDelete = () => {
+  toast.info("삭제중입니다.", {
+    position: toast.POSITION.BOTTOM_RIGHT
+  });
+  return null;
+};
+
+export const successCardDelete = () => {
+  toast.success("삭제되었습니다!", {
+    position: toast.POSITION.BOTTOM_RIGHT
+  });
+  return null;
+};
+
+export const failureCardDelete = () => {
+  toast.error("삭제 할 수 없습니다!", {
+    position: toast.POSITION.BOTTOM_RIGHT
+  });
+  return null;
+};
+
 const { Option } = Select;
 
 const DashBoard = () => {
@@ -42,6 +87,7 @@ const DashBoard = () => {
             return (
               <Card
                 key={item.id}
+                id={item.id}
                 location={item.location}
                 averageTemperture={item.averageTemperture}
                 lowestTemperture={item.lowestTemperture}
@@ -67,7 +113,10 @@ const DashBoard = () => {
           </div>
         )}
       </div>
-      <CreateCardButton />
+      <div className="buttonsContainer">
+        <div className="empty" />
+        <CreateCardButton />
+      </div>
     </div>
   );
 };
@@ -77,7 +126,31 @@ const Card = props => {
     if (e.target.className.match(/edit.*/))
       e.target.parentNode.parentNode.classList.toggle("active");
     else e.target.parentNode.parentNode.parentNode.classList.toggle("active");
+    if (e.target.innerHTML == "수정 완료") {
+      requestEdit();
+    }
+    if (e.target.innerHTML == "삭제 하기") {
+      requestDelete();
+    }
   };
+
+  const requestEdit = () => {
+    dispatch(
+      cardEditAction({
+        id: props.id,
+        location
+      })
+    );
+  };
+
+  const requestDelete = () => {
+    dispatch(
+      cardDeleteAction({
+        id: props.id
+      })
+    );
+  };
+
   const selectedChange = value => {
     setLocation(value);
   };
@@ -207,8 +280,9 @@ const Card = props => {
           >
             {dummy}
           </Select>
-          <div className="editCompleteButton" onClick={onClickMethod}>
-            수정 완료
+          <div className="editCompleteButton">
+            <div onClick={onClickMethod}>수정 완료</div>
+            <div onClick={onClickMethod}>삭제 하기</div>
           </div>
         </div>
       </div>

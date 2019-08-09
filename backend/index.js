@@ -11,6 +11,8 @@ const dotenv = require("dotenv");
 const passport = require("passport");
 const passportConfig = require("./passport");
 
+const prod = process.env.NODE_ENV == "production";
+
 dotenv.config();
 db.sequelize.sync();
 passportConfig();
@@ -47,6 +49,6 @@ app.get("/", (req, res) => {
   res.status(200).send("run!");
 });
 
-app.listen(process.env.PORT, () => {
+app.listen(prod ? process.env.PORT : 8080, () => {
   console.log("server~~~~run~~~Yea~~");
 });

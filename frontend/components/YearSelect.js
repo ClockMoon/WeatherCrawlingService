@@ -44,18 +44,22 @@ const YearSelect = () => {
 
   return (
     <div className="yearSelectContainer">
-      <PreviousMoveButton />
-      <div className="yearContainer">
-        <RangePicker
-          placeholder={["시작 년도", "마지막 년도"]}
-          format="YYYY-MM"
-          value={yearValue}
-          mode={mode}
-          onChange={onYearChange}
-          onPanelChange={onPanelChange}
-        />
+      <div className="yearContainerContainer">
+        <div className="yearContainer">
+          <RangePicker
+            placeholder={["시작 년도", "마지막 년도"]}
+            format="YYYY-MM"
+            value={yearValue}
+            mode={mode}
+            onChange={onYearChange}
+            onPanelChange={onPanelChange}
+          />
+        </div>
       </div>
-      <SubmitCardButton />
+      <div className="buttonsContainer">
+        <PreviousMoveButton />
+        <SubmitCardButton />
+      </div>
     </div>
   );
 };

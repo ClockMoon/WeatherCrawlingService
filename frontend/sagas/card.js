@@ -5,17 +5,33 @@ import {
   ADD_CARD_FAILURE,
   FILE_DOWNLOAD_REQUEST,
   FILE_DOWNLOAD_FAILURE,
-  FILE_DOWNLOAD_SUCCESS
+  FILE_DOWNLOAD_SUCCESS,
+  CARD_EDIT_FAILURE,
+  CARD_EDIT_REQUEST,
+  CARD_EDIT_SUCCESS,
+  CARD_DELETE_REQUEST,
+  CARD_DELETE_SUCCESS,
+  CARD_DELETE_FAILURE
 } from "../reducers/card";
 import axios from "axios";
 import {
   requestFileMessage,
   successFileMessage,
-  failureFileMessage
+  failureFileMessage,
+  requestCardEdit,
+  successCardEdit,
+  failureCardEdit,
+  requestCardDelete,
+  successCardDelete,
+  failureCardDelete
 } from "../components/DashBoard";
 
+import { backendURL } from "../util/process";
+
+axios.defaults.baseURL = `${backendURL}/api`;
+
 function addCardAPI(cardData) {
-  return axios.post("http://52.79.89.94/api/card", cardData);
+  return axios.post("/card", cardData);
 }
 
 function* addCard(action) {
@@ -39,7 +55,7 @@ function* watchingAddCard() {
 
 function fileDownloadAPI(data) {
   return axios({
-    url: "http://52.79.89.94/api/card/excel",
+    url: `/card/excel`,
     method: "POST",
     data: {
       data
@@ -76,6 +92,64 @@ function* watchingFileDownload() {
   yield takeEvery(FILE_DOWNLOAD_REQUEST, fileDownload);
 }
 
+function cardEditAPI(cardData) {
+  return axios.put("/card", cardData);
+}
+
+function* cardEdit(action) {
+  try {
+    yield call(requestCardEdit);
+    yield call(cardEditAPI, action.payload);
+    yield put({
+      type: CARD_EDIT_SUCCESS,
+      payload: action.payload
+    });
+    yield call(successCardEdit);
+  } catch (e) {
+    console.error(e);
+    yield call(failureCardEdit);
+    yield put({
+      type: CARD_EDIT_FAILURE,
+      payload: e
+    });
+  }
+}
+
+function* watchingEditCard() {
+  yield takeEvery(CARD_EDIT_REQUEST, cardEdit);
+}
+
+function cardDeleteAPI(cardData) {
+  return axios.delete("/card", { data: cardData });
+}
+
+function* cardDelete(action) {
+  try {
+    yield call(requestCardDelete);
+    yield call(cardDeleteAPI, action.payload);
+    yield put({
+      type: CARD_DELETE_SUCCESS,
+      payload: action.payload
+    });
+    yield call(successCardDelete);
+  } catch (e) {
+    console.log(e);
+    yield call(failureCardDelete);
+    yield put({
+      type: CARD_DELETE_FAILURE
+    });
+  }
+}
+
+function* watchingDeleteCard() {
+  yield takeEvery(CARD_DELETE_REQUEST, cardDelete);
+}
+
 export default function* cardSaga() {
-  yield all([fork(watchingAddCard), fork(watchingFileDownload)]);
+  yield all([
+    fork(watchingAddCard),
+    fork(watchingFileDownload),
+    fork(watchingEditCard),
+    fork(watchingDeleteCard)
+  ]);
 }

@@ -100,3 +100,23 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+@media (max-width: 1000px) {
+  body {
+    background: url("/static/img/mediaQueryImg.png");
+    background-size: 100% auto;
+    * {
+      opacity: 0;
+    }
+  }
+}
+
+@media (max-height: 600px) {
+  body {
+    background: url("/static/img/mediaQueryImg.png");
+    background-size: 500px auto;
+    * {
+      opacity: 0;
+    }
+  }
+}

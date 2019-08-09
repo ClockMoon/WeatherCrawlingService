@@ -78,9 +78,40 @@ router.post("/", async (req, res) => {
   return res.status(200);
 });
 
-router.delete("/", (req, res) => {});
+router.put("/", async (req, res) => {
+  try {
+    const { id, location } = req.body;
+    const result = await db.Card.update(
+      {
+        location
+      },
+      {
+        where: {
+          id
+        }
+      }
+    );
+    return res.status(200).json(result);
+  } catch (e) {
+    console.error("에러", e);
+  }
+});
 
-router.put("/", (req, res) => {});
+router.delete("/", async (req, res) => {
+  try {
+    console.log(req.body);
+    const { id } = req.body;
+    const result = await db.Card.destroy({
+      where: {
+        id
+      }
+    });
+    return res.status(201).json(result);
+  } catch (e) {
+    console.error(e);
+    return res.status(401).json(e);
+  }
+});
 
 router.get("/excel", (req, res) => {});
 
