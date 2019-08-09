@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "nodemon",
     "test": "mocha ./test -t 15000",
+    "devstart": "cross-env  NODE_ENV=production nodemon index.js",
     "start": "cross-env NODE_ENV=production PORT=80 pm2 start index.js"
   },
   "author": "",
@@ -24,6 +25,7 @@
     "fs": "0.0.1-security",
     "helmet": "^3.20.0",
     "hpp": "^0.2.2",
+    "https": "^1.0.0",
     "iconv-lite": "^0.5.0",
     "mariadb": "^2.1.0",
     "morgan": "^1.9.1",
