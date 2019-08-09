@@ -99,7 +99,6 @@ router.put("/", async (req, res) => {
 
 router.delete("/", async (req, res) => {
   try {
-    console.log(req.body);
     const { id } = req.body;
     const result = await db.Card.destroy({
       where: {
