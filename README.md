@@ -1,5 +1,7 @@
 # 날씨앱 입니다.
 
+# Example
+
 **서비스 주소입니다.**
 
 [http://pastweathercrawler.tk/](http://pastweathercrawler.tk/)
@@ -19,8 +21,6 @@
 
 **다음과 같이 엑이 엑셀로 쉽게 차트를 만들 수 있습니다**
 ![](https://user-images.githubusercontent.com/39228032/62817386-9d38fe00-bb70-11e9-82a6-b2b5d5e8fa44.PNG)
-
-# Example
 
 # Detail
 
@@ -42,3 +42,7 @@
 
 만약 사용의 불편함이나, 궁금한 점이 있을 시에 언제든지 다음 주소로 연락해주세요.
 jiwon3346@gmail.com
+
+## 현재 진행 상황
+
+테스트 코드 작성 중...

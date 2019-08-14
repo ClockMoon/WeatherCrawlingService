@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Select } from "antd";
-import locationInformation from "../util/locationInformation";
-import { CreateCardButton } from "./MoveButton";
+import locationInformation from "../../util/locationInformation";
+import { CreateCardButton } from "../MoveButton";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fileDownloadAction,
   cardEditAction,
   cardDeleteAction
-} from "../reducers/card";
-import factorInformation from "../util/factorInformation";
+} from "../../reducers/card";
+import factorInformation from "../../util/factorInformation";
 import { toast } from "react-toastify";
 
 export const requestFileMessage = () => {

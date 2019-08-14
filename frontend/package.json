@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "nodemon",
     "build": "cross-env ANALYZE=true next build",
+    "test": "jest",
     "prestart": "npm run build",
     "devstart": "cross-env set HTTPS=true NODE_ENV=production next",
     "start": "cross-env NODE_ENV=production PORT=80 pm2 start server.js"
@@ -45,6 +46,12 @@
     "webpack": "^4.39.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-jest": "^24.8.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "jest": "^24.8.0",
     "nodemon": "^1.19.1"
   }
 }

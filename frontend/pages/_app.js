@@ -1,18 +1,16 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Head from "next/head";
 import Layout from "../components/Layout";
 import "../styles/main.scss";
 import withRedux from "next-redux-wrapper";
 import withReduxSaga from "next-redux-saga";
-import { applyMiddleware, compose, createStore } from "redux";
 import { Provider } from "react-redux";
-import reducer from "../reducers";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import createSagaMiddleware from "redux-saga";
-import rootSaga from "../sagas";
 import Axios from "axios";
 import { LOAD_USER_REQUEST } from "../reducers/user";
+import store from "../store";
+console.log(store);
 
 const Index = ({ Component, store }) => {
   toast.configure({
@@ -59,20 +57,4 @@ Index.getInitialProps = async context => {
   return { pageProps };
 };
 
-export default withRedux((initialState, options) => {
-  const sagaMiddleware = createSagaMiddleware();
-  const middlewares = [sagaMiddleware];
-  const enhancer =
-    process.env.NODE_ENV === "production"
-      ? compose(applyMiddleware(...middlewares))
-      : compose(
-          applyMiddleware(...middlewares),
-          !options.isServer &&
-            typeof window.__REDUX_DEVTOOLS_EXTENSION__ !== "undefined"
-            ? window.__REDUX_DEVTOOLS_EXTENSION__()
-            : f => f
-        );
-  const store = createStore(reducer, initialState, enhancer);
-  store.sagaTask = sagaMiddleware.run(rootSaga);
-  return store;
-})(withReduxSaga(Index));
+export default withRedux(store)(withReduxSaga(Index));
