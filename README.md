@@ -1,5 +1,3 @@
-# 날씨앱 입니다.
-
 # Example
 
 **서비스 주소입니다.**
@@ -37,6 +35,187 @@
 **파일이 클 경우**
 
 요청이 오래 걸릴 수 있습니다. 최대 1분까지 잠시만 기다려 주세요!
+
+## 개발 도구
+
+### FrontEnd
+
+- React
+- Redux
+- Hooks
+- Redux-saga
+- Axios
+- Jest
+- Enzyme
+- EC2
+
+### BackEnd
+
+- Express
+- Mocha
+- Axios
+- excel4node
+- passport
+- Sequelize
+- cheerio
+- EC2
+
+## 테스트 코드
+
+### FrontEnd
+
+**컴포넌트 렌더링 테스트**
+
+    describe("DashBoard 컴포넌트 테스트.", () => {
+        it("DashBoard가 정상적으로 렌더링됩니다.", () => {
+        const  component  =  mount(
+    	    <Provider  store={store()}>
+    		    <DashBoard  />
+    	    </Provider>
+        );
+        const  dashboardContainer  =  component.find(".dashboardContainer");
+        expect(dashboardContainer.debug()).toMatchSnapshot();
+        });
+    });
+
+**리듀서 테스트**
+
+    describe("Posts Reducer", () => {
+        it("카드 추가 액션에 성공한다..", async () => {
+    	    const  cards  = [];
+    	    const  addCardDummy  = {
+    		   ...
+    	    };
+    	    const  expectedState  = {
+    	    cardNumber:  cards.length  +  1,
+    	    cards:  cards.concat(addCardDummy),
+    	    ...
+    	    };
+    	    const  newState  =  cardReducer(undefined, {
+    		    type:  ADD_CARD_SUCCESS,
+    		    payload:  addCardDummy
+    	    });
+    	    expect(newState).toEqual(expectedState);
+        });
+    });
+
+**리덕스 사가 테스트**
+
+    describe("addCard REQUEST", () => {
+
+    	it("정상적으로 동기 실행을 한다.", () => {
+    		const  action  = {
+    			payload:  undefined
+    		};
+    		const  iterator  =  addCard(action);
+    		expect(iterator.next().value).toEqual(call(addCardAPI, undefined));
+    		expect(iterator.next({ data:  undefined }).value).toEqual(
+    			put({
+    				type:  ADD_CARD_SUCCESS,
+    				payload:  undefined
+    			})
+    		);
+    	});
+    });
+
+### BackEnd
+
+**엑셀 파싱 테스트**
+
+    const  should  =  require("should");
+    const  WeatherCrawler  =  require("../utils/excelMaker");
+    const { crawlingWeatherData } =  require("../utils/crawler");
+    describe("엑셀 데이터 파싱 테스트", () => {
+        let  result  =  null;
+        before("데이터 가져오기", async () => {
+    	    result  =  await  crawlingWeatherData({
+    	    locationCode:  108,
+    	    year:  2019,
+    	    factorCode:  7
+    	    });
+        });
+        it("GlobalDay 작동 여부 확인 하기", () => {
+    	    const  Test  =  new  WeatherCrawler();
+    	    Test.getGlobalDay().should.be.equal(1);
+    	    Test.upGlobalDay();
+    	    Test.getGlobalDay().should.be.equal(2);
+        });
+        it("인자 이름 가져오기", () => {
+    	    const  Test  =  new  WeatherCrawler();
+    	    const  factorname  =  Test.getFactorName(result);
+    	    factorname.should.be.exactly("일평균기온");
+        });
+        ....
+        it("엑셀 파일에 하나의 요소/ 윤년 포함 여러 년의 데이터 작성(년도 순서를 보장 할 것)", async  done  => {
+    	    const  Test  =  new  WeatherCrawler();
+    	    const  informationDatas  = [{..}]
+    	    let  otherResult  =  null;
+    	    Promise.all(
+    	    informationDatas.map(async  information  => {
+    	    otherResult  =  await  crawlingWeatherData(information);
+    	    Test.inputOneYearFactorData(
+    	    otherResult.factors,
+    	    information.locationCode,
+    	    information.year,
+    	    information.factorCode
+    	    ).write("./sampleExcelFile/OneFactorDataInTwoYears.xlsx");
+    	    })
+    	    );
+    	    done();
+        });
+
+## 배포
+
+EC2를 이용하여 FrontServer와 BackEnd 서버를 분리하여 리눅스 서버에 배포 중
+
+## 기타 이슈
+
+**백엔드에서 만들어진 .xlsx 파일 클라이언트로 전달 문제**
+
+    const  url  =  window.URL.createObjectURL(new  Blob([response.data]));
+    const  link  =  document.createElement("a");
+    link.href  =  url;
+    link.setAttribute("download", "Weather.xlsx");
+    document.body.appendChild(link);
+    link.click();
+
+요청받은 데이터를 프론트에서 Blob으로 저장하여 링크를 만들어, 클릭이벤트를 다시 발생시켜 다운 받도록 유도
+
+**백엔드와 클라이언트 분리로 인한 쿠키 공유 문제**
+
+    app.use(
+        session({
+        secret:  process.env.COOKIE_SECRET,
+        cookie: {
+    	    domain:  ".pastweathercrawler.tk"
+        },
+
+백엔드 서버에 서브 도메인을 제공 한 후 쿠키의 공유 권한을 백엔드 서버에 확대
+
+**기상청 데이터 요청시 인코딩 문제**
+
+    const  getHttpWeatherData  =  async  weatherInfomation  => {
+        const  response  =  await  axios.request({
+    	    method:  "GET",
+    	    url:  http://www.weather.go.kr/weather/climate/past_table.jsp?stn=${
+    	    weatherInfomation.locationCode
+    	    }&yy=${weatherInfomation.year}&obs=${
+    	    weatherInfomation.factorCode
+    	    }&x=16&y=6,
+    	    responseType:  "arraybuffer",
+    	    responseEncoding:  "binary"
+        });
+        if (response.status  ==  200) {
+    	    return  iconv.decode(response.data, "euc-kr").toString();
+        }
+        return  new  Error("페이지 에러");
+    };
+
+버퍼로 받은 후 iconv로 인코딩
+
+**클라이언트에서 로그인 된 유저 load 시에 잠시 동안 로그인이 안되는 상황**
+
+데이터를 Fetch하기 이전에 화면이 렌더링 되는 것으로 파악하여 첫 화면에서 서버 사이드 렌더링으로 문제 해결
 
 ## Q&A
 
