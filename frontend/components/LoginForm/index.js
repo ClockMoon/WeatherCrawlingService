@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loginAction, logoutAction } from "../reducers/user";
+import { loginAction, logoutAction } from "../../reducers/user";
 import { toast } from "react-toastify";
 
 const LoginForm = () => {

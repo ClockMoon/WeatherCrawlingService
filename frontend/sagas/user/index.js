@@ -8,26 +8,31 @@ import {
   LOAD_USER_REQUEST,
   LOAD_USER_FAILURE,
   LOAD_USER_SUCCESS
-} from "../reducers/user";
+} from "../../reducers/user/index";
 import axios from "axios";
-import { CARD_LOAD_SUCCESS, CARD_EMPTY_SUCCESS } from "../reducers/card";
+import {
+  CARD_LOAD_SUCCESS,
+  CARD_EMPTY_SUCCESS
+} from "../../reducers/card/index";
 import {
   requestLoginMessage,
   successLoginMessage,
   failureLoginMessage,
   requestLogoutMessage
-} from "../components/LoginForm";
-import { backendURL } from "../util/process";
+} from "../..//components/LoginForm";
+import { backendURL } from "../../util/process";
 
 axios.defaults.baseURL = `${backendURL}/api`;
 
-function loginAPI(loginData) {
-  return axios.post("/user/login", loginData, {
-    withCredentials: true
-  });
+export function loginAPI(loginData) {
+  if (loginData)
+    return axios.post("/user/login", loginData, {
+      withCredentials: true
+    });
+  return null;
 }
 
-function* login(action) {
+export function* login(action) {
   try {
     yield call(requestLoginMessage);
     const result = yield call(loginAPI, action.payload);

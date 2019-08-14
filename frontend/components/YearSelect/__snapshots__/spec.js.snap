@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YearSelect 컴포넌트 테스트. YearSelect 컴포넌트가 렌더링됩니다. 1`] = `
+"<div className=\\"yearSelectContainer\\">
+  <div className=\\"yearContainerContainer\\">
+    <div className=\\"yearContainer\\">
+      <PickerWrapper placeholder={{...}} format=\\"YYYY-MM\\" value={{...}} mode={{...}} onChange={[Function: onYearChange]} onPanelChange={[Function: onPanelChange]} transitionName=\\"slide-up\\" popupStyle={{...}} onOk={[Function: onOk]} onOpenChange={[Function: onOpenChange]} locale={{...}}>
+        <LocaleReceiver componentName=\\"DatePicker\\" defaultLocale={[Function]}>
+          <RangePicker placeholder={{...}} format=\\"YYYY-MM\\" value={{...}} mode={{...}} onChange={[Function: onYearChange]} onPanelChange={[Function: onPanelChange]} transitionName=\\"slide-up\\" popupStyle={{...}} onOk={[Function: onOk]} onOpenChange={[Function]} locale={{...}} getCalendarContainer={[undefined]} pickerClass=\\"ant-calendar-picker\\" pickerInputClass=\\"ant-calendar-picker-input ant-input\\" localeCode={[undefined]} timePicker={{...}} onFocus={[Function]} onBlur={[Function]} onMouseEnter={[Function]} onMouseLeave={[Function]} allowClear={true} showToday={false} separator=\\"~\\">
+            <span id={[undefined]} className=\\"ant-calendar-picker\\" style={{...}} tabIndex={0} onFocus={[Function]} onBlur={[Function]} onMouseEnter={[Function]} onMouseLeave={[Function]}>
+              <Picker placeholder={{...}} format=\\"YYYY-MM\\" value={{...}} mode={{...}} onChange={[Function]} onPanelChange={[Function: onPanelChange]} transitionName=\\"slide-up\\" popupStyle={{...}} onOk={[Function: onOk]} onOpenChange={[Function]} locale={{...}} getCalendarContainer={[undefined]} pickerClass=\\"ant-calendar-picker\\" pickerInputClass=\\"ant-calendar-picker-input ant-input\\" localeCode={[undefined]} timePicker={{...}} onFocus={[Function]} onBlur={[Function]} onMouseEnter={[Function]} onMouseLeave={[Function]} allowClear={true} showToday={false} separator=\\"~\\" calendar={{...}} open={[undefined]} prefixCls=\\"ant-calendar-picker-container\\" style={{...}} align={{...}} placement=\\"bottomLeft\\" defaultOpen={false}>
+                <Trigger popup={{...}} popupAlign={{...}} builtinPlacements={{...}} popupPlacement=\\"bottomLeft\\" action={{...}} destroyPopupOnHide={true} getPopupContainer={[undefined]} popupStyle={{...}} popupAnimation={[undefined]} popupTransitionName=\\"slide-up\\" popupVisible={[undefined]} onPopupVisibleChange={[Function]} prefixCls=\\"ant-calendar-picker-container\\" popupClassName=\\"\\" getPopupClassNameFromAlign={[Function: returnEmptyString]} getDocument={[Function: returnDocument]} afterPopupVisibleChange={[Function: noop]} onPopupAlign={[Function: noop]} mouseEnterDelay={0} mouseLeaveDelay={0.1} focusDelay={0} blurDelay={0.15} defaultPopupVisible={false} mask={false} maskClosable={true} showAction={{...}} hideAction={{...}}>
+                  <span className=\\"ant-calendar-picker-input ant-input\\" onKeyDown={[Function]} onContextMenu={[undefined]} onClick={[Function]} onMouseDown={[Function]} onTouchStart={[Function]} onMouseEnter={[undefined]} onMouseLeave={[undefined]} onFocus={[undefined]} onBlur={[undefined]}>
+                    <input disabled={[undefined]} readOnly={true} value=\\"\\" placeholder=\\"시작 년도\\" className=\\"ant-calendar-range-picker-input\\" tabIndex={-1} />
+                    <span className=\\"ant-calendar-range-picker-separator\\">
+                       
+                      ~
+                       
+                    </span>
+                    <input disabled={[undefined]} readOnly={true} value=\\"\\" placeholder=\\"마지막 년도\\" className=\\"ant-calendar-range-picker-input\\" tabIndex={-1} />
+                    <InputIcon suffixIcon={[undefined]} prefixCls=\\"ant-calendar\\">
+                      <Icon type=\\"calendar\\" className=\\"ant-calendar-picker-icon\\">
+                        <LocaleReceiver componentName=\\"Icon\\">
+                          <i aria-label=\\"icon: calendar\\" tabIndex={[undefined]} onClick={[undefined]} className=\\"anticon anticon-calendar ant-calendar-picker-icon\\">
+                            <IconReact className=\\"\\" type=\\"calendar-o\\" primaryColor={[undefined]} style={[undefined]}>
+                              <svg viewBox=\\"64 64 896 896\\" focusable=\\"false\\" className=\\"\\" onClick={[undefined]} style={[undefined]} data-icon=\\"calendar\\" width=\\"1em\\" height=\\"1em\\" fill=\\"currentColor\\" aria-hidden=\\"true\\">
+                                <path d=\\"M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z\\" />
+                              </svg>
+                            </IconReact>
+                          </i>
+                        </LocaleReceiver>
+                      </Icon>
+                    </InputIcon>
+                  </span>
+                </Trigger>
+              </Picker>
+            </span>
+          </RangePicker>
+        </LocaleReceiver>
+      </PickerWrapper>
+    </div>
+  </div>
+  <div className=\\"buttonsContainer\\">
+    <PreviousMoveButton>
+      <div className=\\"previousContainer\\" onClick={[Function: movePreviousPage]}>
+        <div className=\\"previous\\">
+          이전
+        </div>
+      </div>
+    </PreviousMoveButton>
+    <SubmitCardButton>
+      <div className=\\"submitCardContainer\\" onClick={[Function: submitCreateCard]}>
+        <div className=\\"submitCard\\">
+          생성
+        </div>
+      </div>
+    </SubmitCardButton>
+  </div>
+</div>"
+`;

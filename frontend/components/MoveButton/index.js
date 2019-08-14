@@ -1,7 +1,7 @@
 import scroll from "scroll";
 import scrollDoc from "scroll-doc";
 import { useDispatch, useSelector } from "react-redux";
-import { addCardAction } from "../reducers/card";
+import { addCardAction } from "../../reducers/card";
 import { toast } from "react-toastify";
 
 const page = scrollDoc();

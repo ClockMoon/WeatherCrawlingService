@@ -10,7 +10,6 @@ import "react-toastify/dist/ReactToastify.css";
 import Axios from "axios";
 import { LOAD_USER_REQUEST } from "../reducers/user";
 import store from "../store";
-console.log(store);
 
 const Index = ({ Component, store }) => {
   toast.configure({

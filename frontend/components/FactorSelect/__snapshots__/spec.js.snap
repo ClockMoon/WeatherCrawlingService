@@ -1,0 +1,171 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FactorSelect 컴포넌트 테스트. FactorSelect가 정상적으로 렌더링 됩니다. 1`] = `
+"<div className=\\"factorSelectContainer\\">
+  <div className=\\"factorContainer\\">
+    <Checkbox onChange={[Function: onCheckAllChange]} indeterminate={true} checked={false}>
+      <label className=\\"ant-checkbox-wrapper\\" style={[undefined]} onMouseEnter={[undefined]} onMouseLeave={[undefined]}>
+        <Checkbox onChange={[Function: onCheckAllChange]} checked={false} prefixCls=\\"ant-checkbox\\" className=\\"ant-checkbox-indeterminate\\" style={{...}} type=\\"checkbox\\" defaultChecked={false} onFocus={[Function: onFocus]} onBlur={[Function: onBlur]}>
+          <span className=\\"ant-checkbox ant-checkbox-indeterminate\\" style={{...}}>
+            <input name={[undefined]} id={[undefined]} type=\\"checkbox\\" readOnly={[undefined]} disabled={[undefined]} tabIndex={[undefined]} className=\\"ant-checkbox-input\\" checked={false} onClick={[undefined]} onFocus={[Function: onFocus]} onBlur={[Function: onBlur]} onChange={[Function]} autoFocus={[undefined]} value={[undefined]} />
+            <span className=\\"ant-checkbox-inner\\" />
+          </span>
+        </Checkbox>
+        <span>
+          모두 선택하기
+        </span>
+      </label>
+    </Checkbox>
+    <CheckboxGroup options={{...}} value={{...}} onChange={[Function: onCheckChange]}>
+      <div className=\\"ant-checkbox-group\\" style={[undefined]}>
+        <Checkbox prefixCls=\\"ant-checkbox\\" disabled={[undefined]} value=\\"평균기온\\" checked={false} onChange={[undefined]} className=\\"ant-checkbox-group-item\\" indeterminate={false}>
+          <label className=\\"ant-checkbox-group-item ant-checkbox-wrapper\\" style={[undefined]} onMouseEnter={[undefined]} onMouseLeave={[undefined]}>
+            <Checkbox disabled={[undefined]} value=\\"평균기온\\" checked={false} onChange={[Function]} name={[undefined]} prefixCls=\\"ant-checkbox\\" className=\\"\\" style={{...}} type=\\"checkbox\\" defaultChecked={false} onFocus={[Function: onFocus]} onBlur={[Function: onBlur]}>
+              <span className=\\"ant-checkbox\\" style={{...}}>
+                <input name={[undefined]} id={[undefined]} type=\\"checkbox\\" readOnly={[undefined]} disabled={[undefined]} tabIndex={[undefined]} className=\\"ant-checkbox-input\\" checked={false} onClick={[undefined]} onFocus={[Function: onFocus]} onBlur={[Function: onBlur]} onChange={[Function]} autoFocus={[undefined]} value=\\"평균기온\\" />
+                <span className=\\"ant-checkbox-inner\\" />
+              </span>
+            </Checkbox>
+            <span>
+              평균기온
+            </span>
+          </label>
+        </Checkbox>
+        <Checkbox prefixCls=\\"ant-checkbox\\" disabled={[undefined]} value=\\"최저기온\\" checked={false} onChange={[undefined]} className=\\"ant-checkbox-group-item\\" indeterminate={false}>
+          <label className=\\"ant-checkbox-group-item ant-checkbox-wrapper\\" style={[undefined]} onMouseEnter={[undefined]} onMouseLeave={[undefined]}>
+            <Checkbox disabled={[undefined]} value=\\"최저기온\\" checked={false} onChange={[Function]} name={[undefined]} prefixCls=\\"ant-checkbox\\" className=\\"\\" style={{...}} type=\\"checkbox\\" defaultChecked={false} onFocus={[Function: onFocus]} onBlur={[Function: onBlur]}>
+              <span className=\\"ant-checkbox\\" style={{...}}>
+                <input name={[undefined]} id={[undefined]} type=\\"checkbox\\" readOnly={[undefined]} disabled={[undefined]} tabIndex={[undefined]} className=\\"ant-checkbox-input\\" checked={false} onClick={[undefined]} onFocus={[Function: onFocus]} onBlur={[Function: onBlur]} onChange={[Function]} autoFocus={[undefined]} value=\\"최저기온\\" />
+                <span className=\\"ant-checkbox-inner\\" />
+              </span>
+            </Checkbox>
+            <span>
+              최저기온
+            </span>
+          </label>
+        </Checkbox>
+        <Checkbox prefixCls=\\"ant-checkbox\\" disabled={[undefined]} value=\\"최고기온\\" checked={false} onChange={[undefined]} className=\\"ant-checkbox-group-item\\" indeterminate={false}>
+          <label className=\\"ant-checkbox-group-item ant-checkbox-wrapper\\" style={[undefined]} onMouseEnter={[undefined]} onMouseLeave={[undefined]}>
+            <Checkbox disabled={[undefined]} value=\\"최고기온\\" checked={false} onChange={[Function]} name={[undefined]} prefixCls=\\"ant-checkbox\\" className=\\"\\" style={{...}} type=\\"checkbox\\" defaultChecked={false} onFocus={[Function: onFocus]} onBlur={[Function: onBlur]}>
+              <span className=\\"ant-checkbox\\" style={{...}}>
+                <input name={[undefined]} id={[undefined]} type=\\"checkbox\\" readOnly={[undefined]} disabled={[undefined]} tabIndex={[undefined]} className=\\"ant-checkbox-input\\" checked={false} onClick={[undefined]} onFocus={[Function: onFocus]} onBlur={[Function: onBlur]} onChange={[Function]} autoFocus={[undefined]} value=\\"최고기온\\" />
+                <span className=\\"ant-checkbox-inner\\" />
+              </span>
+            </Checkbox>
+            <span>
+              최고기온
+            </span>
+          </label>
+        </Checkbox>
+        <Checkbox prefixCls=\\"ant-checkbox\\" disabled={[undefined]} value=\\"강수량\\" checked={false} onChange={[undefined]} className=\\"ant-checkbox-group-item\\" indeterminate={false}>
+          <label className=\\"ant-checkbox-group-item ant-checkbox-wrapper\\" style={[undefined]} onMouseEnter={[undefined]} onMouseLeave={[undefined]}>
+            <Checkbox disabled={[undefined]} value=\\"강수량\\" checked={false} onChange={[Function]} name={[undefined]} prefixCls=\\"ant-checkbox\\" className=\\"\\" style={{...}} type=\\"checkbox\\" defaultChecked={false} onFocus={[Function: onFocus]} onBlur={[Function: onBlur]}>
+              <span className=\\"ant-checkbox\\" style={{...}}>
+                <input name={[undefined]} id={[undefined]} type=\\"checkbox\\" readOnly={[undefined]} disabled={[undefined]} tabIndex={[undefined]} className=\\"ant-checkbox-input\\" checked={false} onClick={[undefined]} onFocus={[Function: onFocus]} onBlur={[Function: onBlur]} onChange={[Function]} autoFocus={[undefined]} value=\\"강수량\\" />
+                <span className=\\"ant-checkbox-inner\\" />
+              </span>
+            </Checkbox>
+            <span>
+              강수량
+            </span>
+          </label>
+        </Checkbox>
+        <Checkbox prefixCls=\\"ant-checkbox\\" disabled={[undefined]} value=\\"신적설\\" checked={false} onChange={[undefined]} className=\\"ant-checkbox-group-item\\" indeterminate={false}>
+          <label className=\\"ant-checkbox-group-item ant-checkbox-wrapper\\" style={[undefined]} onMouseEnter={[undefined]} onMouseLeave={[undefined]}>
+            <Checkbox disabled={[undefined]} value=\\"신적설\\" checked={false} onChange={[Function]} name={[undefined]} prefixCls=\\"ant-checkbox\\" className=\\"\\" style={{...}} type=\\"checkbox\\" defaultChecked={false} onFocus={[Function: onFocus]} onBlur={[Function: onBlur]}>
+              <span className=\\"ant-checkbox\\" style={{...}}>
+                <input name={[undefined]} id={[undefined]} type=\\"checkbox\\" readOnly={[undefined]} disabled={[undefined]} tabIndex={[undefined]} className=\\"ant-checkbox-input\\" checked={false} onClick={[undefined]} onFocus={[Function: onFocus]} onBlur={[Function: onBlur]} onChange={[Function]} autoFocus={[undefined]} value=\\"신적설\\" />
+                <span className=\\"ant-checkbox-inner\\" />
+              </span>
+            </Checkbox>
+            <span>
+              신적설
+            </span>
+          </label>
+        </Checkbox>
+        <Checkbox prefixCls=\\"ant-checkbox\\" disabled={[undefined]} value=\\"평균풍속\\" checked={false} onChange={[undefined]} className=\\"ant-checkbox-group-item\\" indeterminate={false}>
+          <label className=\\"ant-checkbox-group-item ant-checkbox-wrapper\\" style={[undefined]} onMouseEnter={[undefined]} onMouseLeave={[undefined]}>
+            <Checkbox disabled={[undefined]} value=\\"평균풍속\\" checked={false} onChange={[Function]} name={[undefined]} prefixCls=\\"ant-checkbox\\" className=\\"\\" style={{...}} type=\\"checkbox\\" defaultChecked={false} onFocus={[Function: onFocus]} onBlur={[Function: onBlur]}>
+              <span className=\\"ant-checkbox\\" style={{...}}>
+                <input name={[undefined]} id={[undefined]} type=\\"checkbox\\" readOnly={[undefined]} disabled={[undefined]} tabIndex={[undefined]} className=\\"ant-checkbox-input\\" checked={false} onClick={[undefined]} onFocus={[Function: onFocus]} onBlur={[Function: onBlur]} onChange={[Function]} autoFocus={[undefined]} value=\\"평균풍속\\" />
+                <span className=\\"ant-checkbox-inner\\" />
+              </span>
+            </Checkbox>
+            <span>
+              평균풍속
+            </span>
+          </label>
+        </Checkbox>
+        <Checkbox prefixCls=\\"ant-checkbox\\" disabled={[undefined]} value=\\"상대습도\\" checked={false} onChange={[undefined]} className=\\"ant-checkbox-group-item\\" indeterminate={false}>
+          <label className=\\"ant-checkbox-group-item ant-checkbox-wrapper\\" style={[undefined]} onMouseEnter={[undefined]} onMouseLeave={[undefined]}>
+            <Checkbox disabled={[undefined]} value=\\"상대습도\\" checked={false} onChange={[Function]} name={[undefined]} prefixCls=\\"ant-checkbox\\" className=\\"\\" style={{...}} type=\\"checkbox\\" defaultChecked={false} onFocus={[Function: onFocus]} onBlur={[Function: onBlur]}>
+              <span className=\\"ant-checkbox\\" style={{...}}>
+                <input name={[undefined]} id={[undefined]} type=\\"checkbox\\" readOnly={[undefined]} disabled={[undefined]} tabIndex={[undefined]} className=\\"ant-checkbox-input\\" checked={false} onClick={[undefined]} onFocus={[Function: onFocus]} onBlur={[Function: onBlur]} onChange={[Function]} autoFocus={[undefined]} value=\\"상대습도\\" />
+                <span className=\\"ant-checkbox-inner\\" />
+              </span>
+            </Checkbox>
+            <span>
+              상대습도
+            </span>
+          </label>
+        </Checkbox>
+        <Checkbox prefixCls=\\"ant-checkbox\\" disabled={[undefined]} value=\\"일조시간\\" checked={false} onChange={[undefined]} className=\\"ant-checkbox-group-item\\" indeterminate={false}>
+          <label className=\\"ant-checkbox-group-item ant-checkbox-wrapper\\" style={[undefined]} onMouseEnter={[undefined]} onMouseLeave={[undefined]}>
+            <Checkbox disabled={[undefined]} value=\\"일조시간\\" checked={false} onChange={[Function]} name={[undefined]} prefixCls=\\"ant-checkbox\\" className=\\"\\" style={{...}} type=\\"checkbox\\" defaultChecked={false} onFocus={[Function: onFocus]} onBlur={[Function: onBlur]}>
+              <span className=\\"ant-checkbox\\" style={{...}}>
+                <input name={[undefined]} id={[undefined]} type=\\"checkbox\\" readOnly={[undefined]} disabled={[undefined]} tabIndex={[undefined]} className=\\"ant-checkbox-input\\" checked={false} onClick={[undefined]} onFocus={[Function: onFocus]} onBlur={[Function: onBlur]} onChange={[Function]} autoFocus={[undefined]} value=\\"일조시간\\" />
+                <span className=\\"ant-checkbox-inner\\" />
+              </span>
+            </Checkbox>
+            <span>
+              일조시간
+            </span>
+          </label>
+        </Checkbox>
+        <Checkbox prefixCls=\\"ant-checkbox\\" disabled={[undefined]} value=\\"운량\\" checked={false} onChange={[undefined]} className=\\"ant-checkbox-group-item\\" indeterminate={false}>
+          <label className=\\"ant-checkbox-group-item ant-checkbox-wrapper\\" style={[undefined]} onMouseEnter={[undefined]} onMouseLeave={[undefined]}>
+            <Checkbox disabled={[undefined]} value=\\"운량\\" checked={false} onChange={[Function]} name={[undefined]} prefixCls=\\"ant-checkbox\\" className=\\"\\" style={{...}} type=\\"checkbox\\" defaultChecked={false} onFocus={[Function: onFocus]} onBlur={[Function: onBlur]}>
+              <span className=\\"ant-checkbox\\" style={{...}}>
+                <input name={[undefined]} id={[undefined]} type=\\"checkbox\\" readOnly={[undefined]} disabled={[undefined]} tabIndex={[undefined]} className=\\"ant-checkbox-input\\" checked={false} onClick={[undefined]} onFocus={[Function: onFocus]} onBlur={[Function: onBlur]} onChange={[Function]} autoFocus={[undefined]} value=\\"운량\\" />
+                <span className=\\"ant-checkbox-inner\\" />
+              </span>
+            </Checkbox>
+            <span>
+              운량
+            </span>
+          </label>
+        </Checkbox>
+        <Checkbox prefixCls=\\"ant-checkbox\\" disabled={[undefined]} value=\\"날씨\\" checked={false} onChange={[undefined]} className=\\"ant-checkbox-group-item\\" indeterminate={false}>
+          <label className=\\"ant-checkbox-group-item ant-checkbox-wrapper\\" style={[undefined]} onMouseEnter={[undefined]} onMouseLeave={[undefined]}>
+            <Checkbox disabled={[undefined]} value=\\"날씨\\" checked={false} onChange={[Function]} name={[undefined]} prefixCls=\\"ant-checkbox\\" className=\\"\\" style={{...}} type=\\"checkbox\\" defaultChecked={false} onFocus={[Function: onFocus]} onBlur={[Function: onBlur]}>
+              <span className=\\"ant-checkbox\\" style={{...}}>
+                <input name={[undefined]} id={[undefined]} type=\\"checkbox\\" readOnly={[undefined]} disabled={[undefined]} tabIndex={[undefined]} className=\\"ant-checkbox-input\\" checked={false} onClick={[undefined]} onFocus={[Function: onFocus]} onBlur={[Function: onBlur]} onChange={[Function]} autoFocus={[undefined]} value=\\"날씨\\" />
+                <span className=\\"ant-checkbox-inner\\" />
+              </span>
+            </Checkbox>
+            <span>
+              날씨
+            </span>
+          </label>
+        </Checkbox>
+      </div>
+    </CheckboxGroup>
+  </div>
+  <div className=\\"buttonsContainer\\">
+    <PreviousMoveButton>
+      <div className=\\"previousContainer\\" onClick={[Function: movePreviousPage]}>
+        <div className=\\"previous\\">
+          이전
+        </div>
+      </div>
+    </PreviousMoveButton>
+    <NextMoveButton>
+      <div className=\\"nextContainer\\" onClick={[Function: moveNextPage]}>
+        <div className=\\"next\\">
+          다음
+        </div>
+      </div>
+    </NextMoveButton>
+  </div>
+</div>"
+`;

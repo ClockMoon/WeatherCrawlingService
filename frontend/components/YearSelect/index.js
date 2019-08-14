@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { DatePicker } from "antd";
-import { PreviousMoveButton, SubmitCardButton } from "./MoveButton";
+import { PreviousMoveButton, SubmitCardButton } from "../MoveButton";
 import { useDispatch } from "react-redux";
-import { selectStartYearAction, selectEndYearAction } from "../reducers/card";
+import {
+  selectStartYearAction,
+  selectEndYearAction
+} from "../../reducers/card";
 
 const { RangePicker } = DatePicker;
 

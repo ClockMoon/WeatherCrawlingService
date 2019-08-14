@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import scroll from "scroll";
 import scrollDoc from "scroll-doc";
-import { LOAD_USER_REQUEST, loadUserAction } from "../reducers/user";
+import { LOAD_USER_REQUEST, loadUserAction } from "../../reducers/user";
 
 const page = scrollDoc();
 let fragment = 0;

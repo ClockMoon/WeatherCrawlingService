@@ -1,8 +1,8 @@
 import React from "react";
-import { PreviousMoveButton, NextMoveButton } from "./MoveButton";
-import locationInformation from "../util/locationInformation";
+import { PreviousMoveButton, NextMoveButton } from "../MoveButton";
+import locationInformation from "../../util/locationInformation";
 import { useDispatch, useSelector } from "react-redux";
-import { selectLocationAction } from "../reducers/card";
+import { selectLocationAction } from "../../reducers/card";
 const LocationSelect = () => {
   return (
     <div className="locationSelectContainer">
@@ -13,7 +13,7 @@ const LocationSelect = () => {
               locationInformation={locationInformation}
               startIndex={0}
               endIndex={20}
-              key={1}
+              key="1"
             />
           </div>
           <div>
@@ -21,7 +21,7 @@ const LocationSelect = () => {
               locationInformation={locationInformation}
               startIndex={20}
               endIndex={40}
-              key={2}
+              key="2"
             />
           </div>
           <div>
@@ -29,7 +29,7 @@ const LocationSelect = () => {
               locationInformation={locationInformation}
               startIndex={40}
               endIndex={60}
-              key={3}
+              key="3"
             />
           </div>
           <div>
@@ -37,7 +37,7 @@ const LocationSelect = () => {
               locationInformation={locationInformation}
               startIndex={60}
               endIndex={80}
-              key={4}
+              key="4"
             />
           </div>
           <div>
@@ -45,7 +45,7 @@ const LocationSelect = () => {
               locationInformation={locationInformation}
               startIndex={80}
               endIndex={100}
-              key={5}
+              key="5"
             />
           </div>
         </div>
@@ -71,14 +71,14 @@ const Location = props => {
         .filter((target, index) => {
           return props.startIndex <= index && index < props.endIndex;
         })
-        .map(target => {
+        .map((target, index) => {
           return (
             <>
               {selectedLocation === target.location ? (
                 <div
                   value={target.location}
                   onClick={selectTarget}
-                  key={target.code}
+                  key={target.location}
                   className="location selectedLocation"
                 >
                   {target.location}
@@ -87,7 +87,7 @@ const Location = props => {
                 <div
                   value={target.location}
                   onClick={selectTarget}
-                  key={target.code}
+                  key={target.location}
                   className="location colorFont"
                 >
                   {target.location}

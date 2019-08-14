@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PreviousMoveButton 컴포넌트 테스트. PreviousMoveButton 컴포넌트가 렌더링됩니다. 1`] = `
+"<div className=\\"previousContainer\\" onClick={[Function: movePreviousPage]}>
+  <div className=\\"previous\\">
+    이전
+  </div>
+</div>"
+`;

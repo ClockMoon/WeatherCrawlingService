@@ -1,0 +1,331 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`locationSelect 컴포넌트 테스트. locationSelect 컴포넌트가 렌더링됩니다. 1`] = `
+"<div className=\\"locationSelectContainer\\">
+  <div className=\\"locationContainerContainer\\">
+    <div className=\\"locationContainer\\">
+      <div>
+        <Location locationInformation={{...}} startIndex={0} endIndex={20}>
+          <div value=\\"강릉\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            강릉
+          </div>
+          <div value=\\"강진군\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            강진군
+          </div>
+          <div value=\\"강화\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            강화
+          </div>
+          <div value=\\"거제\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            거제
+          </div>
+          <div value=\\"거창\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            거창
+          </div>
+          <div value=\\"경주시\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            경주시
+          </div>
+          <div value=\\"고산\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            고산
+          </div>
+          <div value=\\"고창\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            고창
+          </div>
+          <div value=\\"고창군\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            고창군
+          </div>
+          <div value=\\"고흥\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            고흥
+          </div>
+          <div value=\\"광양\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            광양
+          </div>
+          <div value=\\"광주\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            광주
+          </div>
+          <div value=\\"구미\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            구미
+          </div>
+          <div value=\\"군산\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            군산
+          </div>
+          <div value=\\"금산\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            금산
+          </div>
+          <div value=\\"김해시\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            김해시
+          </div>
+          <div value=\\"남원\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            남원
+          </div>
+          <div value=\\"남해\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            남해
+          </div>
+          <div value=\\"대관령\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            대관령
+          </div>
+          <div value=\\"대구\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            대구
+          </div>
+        </Location>
+      </div>
+      <div>
+        <Location locationInformation={{...}} startIndex={20} endIndex={40}>
+          <div value=\\"대전\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            대전
+          </div>
+          <div value=\\"동두천\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            동두천
+          </div>
+          <div value=\\"동해\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            동해
+          </div>
+          <div value=\\"목포\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            목포
+          </div>
+          <div value=\\"문경\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            문경
+          </div>
+          <div value=\\"밀양\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            밀양
+          </div>
+          <div value=\\"백령도\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            백령도
+          </div>
+          <div value=\\"보령\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            보령
+          </div>
+          <div value=\\"보성군\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            보성군
+          </div>
+          <div value=\\"보은\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            보은
+          </div>
+          <div value=\\"봉화\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            봉화
+          </div>
+          <div value=\\"부산\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            부산
+          </div>
+          <div value=\\"부안\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            부안
+          </div>
+          <div value=\\"부여\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            부여
+          </div>
+          <div value=\\"북강릉\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            북강릉
+          </div>
+          <div value=\\"북창원\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            북창원
+          </div>
+          <div value=\\"북춘천\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            북춘천
+          </div>
+          <div value=\\"산청\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            산청
+          </div>
+          <div value=\\"상주\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            상주
+          </div>
+          <div value=\\"서귀포\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            서귀포
+          </div>
+        </Location>
+      </div>
+      <div>
+        <Location locationInformation={{...}} startIndex={40} endIndex={60}>
+          <div value=\\"서산\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            서산
+          </div>
+          <div value=\\"서울\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            서울
+          </div>
+          <div value=\\"성산\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            성산
+          </div>
+          <div value=\\"속초\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            속초
+          </div>
+          <div value=\\"수원\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            수원
+          </div>
+          <div value=\\"순창\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            순창
+          </div>
+          <div value=\\"순천\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            순천
+          </div>
+          <div value=\\"안동\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            안동
+          </div>
+          <div value=\\"양산\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            양산
+          </div>
+          <div value=\\"양평\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            양평
+          </div>
+          <div value=\\"여수\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            여수
+          </div>
+          <div value=\\"영광\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            영광
+          </div>
+          <div value=\\"영덕\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            영덕
+          </div>
+          <div value=\\"영월\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            영월
+          </div>
+          <div value=\\"영주\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            영주
+          </div>
+          <div value=\\"영천\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            영천
+          </div>
+          <div value=\\"완도\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            완도
+          </div>
+          <div value=\\"울릉도\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            울릉도
+          </div>
+          <div value=\\"울산\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            울산
+          </div>
+          <div value=\\"울진\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            울진
+          </div>
+        </Location>
+      </div>
+      <div>
+        <Location locationInformation={{...}} startIndex={60} endIndex={80}>
+          <div value=\\"원주\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            원주
+          </div>
+          <div value=\\"의령군\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            의령군
+          </div>
+          <div value=\\"의성\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            의성
+          </div>
+          <div value=\\"이천\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            이천
+          </div>
+          <div value=\\"인제\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            인제
+          </div>
+          <div value=\\"인천\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            인천
+          </div>
+          <div value=\\"임실\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            임실
+          </div>
+          <div value=\\"장수\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            장수
+          </div>
+          <div value=\\"장흥\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            장흥
+          </div>
+          <div value=\\"전주\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            전주
+          </div>
+          <div value=\\"정선군\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            정선군
+          </div>
+          <div value=\\"정읍\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            정읍
+          </div>
+          <div value=\\"제주\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            제주
+          </div>
+          <div value=\\"제천\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            제천
+          </div>
+          <div value=\\"진도\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            진도
+          </div>
+          <div value=\\"진도군\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            진도군
+          </div>
+          <div value=\\"진주\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            진주
+          </div>
+          <div value=\\"창원\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            창원
+          </div>
+          <div value=\\"천안\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            천안
+          </div>
+          <div value=\\"철원\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            철원
+          </div>
+        </Location>
+      </div>
+      <div>
+        <Location locationInformation={{...}} startIndex={80} endIndex={100}>
+          <div value=\\"청송군\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            청송군
+          </div>
+          <div value=\\"청주\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            청주
+          </div>
+          <div value=\\"추풍령\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            추풍령
+          </div>
+          <div value=\\"춘천\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            춘천
+          </div>
+          <div value=\\"충주\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            충주
+          </div>
+          <div value=\\"태백\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            태백
+          </div>
+          <div value=\\"통영\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            통영
+          </div>
+          <div value=\\"파주\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            파주
+          </div>
+          <div value=\\"포항\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            포항
+          </div>
+          <div value=\\"함양군\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            함양군
+          </div>
+          <div value=\\"합천\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            합천
+          </div>
+          <div value=\\"해남\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            해남
+          </div>
+          <div value=\\"홍성\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            홍성
+          </div>
+          <div value=\\"홍천\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            홍천
+          </div>
+          <div value=\\"흑산도\\" onClick={[Function: selectTarget]} className=\\"location colorFont\\">
+            흑산도
+          </div>
+        </Location>
+      </div>
+    </div>
+  </div>
+  <div className=\\"buttonsContainer\\">
+    <PreviousMoveButton>
+      <div className=\\"previousContainer\\" onClick={[Function: movePreviousPage]}>
+        <div className=\\"previous\\">
+          이전
+        </div>
+      </div>
+    </PreviousMoveButton>
+    <NextMoveButton>
+      <div className=\\"nextContainer\\" onClick={[Function: moveNextPage]}>
+        <div className=\\"next\\">
+          다음
+        </div>
+      </div>
+    </NextMoveButton>
+  </div>
+</div>"
+`;

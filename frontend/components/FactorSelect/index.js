@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import { PreviousMoveButton, NextMoveButton } from "./MoveButton";
+import { PreviousMoveButton, NextMoveButton } from "../MoveButton";
 import { Checkbox } from "antd";
-import factorInformation from "../util/factorInformation";
+import factorInformation from "../../util/factorInformation";
 import { useDispatch } from "react-redux";
-import { selectFactorsAction, selectAllFactorsAction } from "../reducers/card";
+import {
+  selectFactorsAction,
+  selectAllFactorsAction
+} from "../../reducers/card";
 const CheckboxGroup = Checkbox.Group;
 
 const factorInformationName = factorInformation.map(value => {

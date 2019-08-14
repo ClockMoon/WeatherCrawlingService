@@ -12,7 +12,7 @@ import {
   CARD_DELETE_REQUEST,
   CARD_DELETE_SUCCESS,
   CARD_DELETE_FAILURE
-} from "../reducers/card";
+} from "../../reducers/card/index";
 import axios from "axios";
 import {
   requestFileMessage,
@@ -24,17 +24,18 @@ import {
   requestCardDelete,
   successCardDelete,
   failureCardDelete
-} from "../components/DashBoard";
+} from "../../components/DashBoard";
 
-import { backendURL } from "../util/process";
+import { backendURL } from "../../util/process";
 
 axios.defaults.baseURL = `${backendURL}/api`;
 
-function addCardAPI(cardData) {
-  return axios.post("/card", cardData);
+export function addCardAPI(cardData) {
+  if (cardData) return axios.post("/card", cardData);
+  return null;
 }
 
-function* addCard(action) {
+export function* addCard(action) {
   try {
     const result = yield call(addCardAPI, action.payload);
     yield put({
