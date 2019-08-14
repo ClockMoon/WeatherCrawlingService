@@ -1,8 +1,4 @@
-import {
-  ADD_CARD_REQUEST,
-  ADD_CARD_FAILURE,
-  ADD_CARD_SUCCESS
-} from "../../reducers/card/index";
+import { ADD_CARD_SUCCESS } from "../../reducers/card/index";
 import { call, put } from "redux-saga/effects";
 import { addCard, addCardAPI } from "../../sagas/card/index";
 
