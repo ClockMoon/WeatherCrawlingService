@@ -25,7 +25,7 @@ if (prod) {
   app.use(morgan("combined"));
   app.use(
     cors({
-      origin: "http://pastweathercrawler.tk",
+      origin: "https://pastweathercrawler.tk",
       credentials: true
     })
   );
@@ -48,7 +48,7 @@ app.use(
     saveUninitialized: false,
     secret: process.env.COOKIE_SECRET,
     cookie: {
-      httpOnly: true,
+      httpOnly: false,
       secure: false,
       domain: ".pastweathercrawler.tk"
     },
